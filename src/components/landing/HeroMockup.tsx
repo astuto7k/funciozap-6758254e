@@ -2,7 +2,7 @@ import { Check, Calendar, Sparkles } from "lucide-react";
 
 export function HeroMockup() {
   return (
-    <div className="relative w-full max-w-[560px] mx-auto">
+    <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[560px] mx-auto">
       {/* Glow */}
       <div
         aria-hidden
@@ -22,48 +22,48 @@ export function HeroMockup() {
             <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
           </div>
-          <div className="text-[11px] text-muted-foreground font-medium">
+          <div className="text-[10px] sm:text-[11px] text-muted-foreground font-medium truncate px-2">
             funciozap.app / conversas
           </div>
           <div className="w-10" />
         </div>
 
         {/* Body */}
-        <div className="grid grid-cols-[1fr_180px] min-h-[360px]">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_160px] lg:grid-cols-[1fr_180px] min-h-[340px]">
           {/* Chat */}
-          <div className="p-4 sm:p-5 space-y-3 bg-white">
+          <div className="p-3.5 sm:p-5 space-y-2.5 sm:space-y-3 bg-white">
             <div className="flex items-center gap-2 text-[12px] text-muted-foreground">
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366]">
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4l.2-.3c.1-.1.1-.2 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.6 4.2 3.6.6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0-.1-.2-.2-.4-.3z"/></svg>
               </span>
-              <span className="font-medium text-foreground text-[13px]">Mariana Silva</span>
+              <span className="font-medium text-foreground text-[12.5px] sm:text-[13px]">Mariana Silva</span>
               <span className="text-[11px]">• agora</span>
             </div>
 
             {/* incoming */}
-            <div className="max-w-[78%] rounded-2xl rounded-tl-md bg-secondary px-3.5 py-2.5 text-[13px] text-foreground">
+            <div className="max-w-[82%] rounded-2xl rounded-tl-md bg-secondary px-3 sm:px-3.5 py-2 sm:py-2.5 text-[12.5px] sm:text-[13px] text-foreground">
               Oi! Vocês fazem avaliação para clareamento? Quanto custa?
             </div>
 
             {/* outgoing (AI) */}
-            <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-md bg-primary px-3.5 py-2.5 text-[13px] text-primary-foreground">
+            <div className="ml-auto max-w-[85%] rounded-2xl rounded-tr-md bg-primary px-3 sm:px-3.5 py-2 sm:py-2.5 text-[12.5px] sm:text-[13px] text-primary-foreground">
               Oi Mariana! Fazemos sim 😊 A avaliação é gratuita. Posso te encaixar amanhã às 14:30 ou quinta às 10h. Qual prefere?
               <div className="mt-1.5 flex items-center gap-1 text-[10px] text-white/80">
                 <Sparkles className="h-3 w-3" /> Respondido pela IA • 1s
               </div>
             </div>
 
-            <div className="max-w-[60%] rounded-2xl rounded-tl-md bg-secondary px-3.5 py-2.5 text-[13px] text-foreground">
+            <div className="max-w-[65%] rounded-2xl rounded-tl-md bg-secondary px-3 sm:px-3.5 py-2 sm:py-2.5 text-[12.5px] sm:text-[13px] text-foreground">
               Pode ser amanhã 14:30!
             </div>
 
-            <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-md bg-primary px-3.5 py-2.5 text-[13px] text-primary-foreground">
+            <div className="ml-auto max-w-[85%] rounded-2xl rounded-tr-md bg-primary px-3 sm:px-3.5 py-2 sm:py-2.5 text-[12.5px] sm:text-[13px] text-primary-foreground">
               Perfeito! Agendei aqui ✅ Te mando confirmação amanhã pela manhã.
             </div>
           </div>
 
           {/* Side panel */}
-          <aside className="border-l border-border/60 bg-secondary/40 p-3 space-y-3">
+          <aside className="hidden sm:block border-l border-border/60 bg-secondary/40 p-3 space-y-3">
             <div className="rounded-xl bg-white shadow-card p-3">
               <div className="flex items-center gap-1.5">
                 <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse-dot" />
@@ -95,11 +95,23 @@ export function HeroMockup() {
       </div>
 
       {/* Floating confirm pill */}
-      <div className="absolute -bottom-5 left-4 sm:-left-6 hidden sm:flex items-center gap-2 rounded-full bg-white px-4 py-2.5 shadow-float ring-1 ring-border/60">
-        <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600">
-          <Check className="h-3.5 w-3.5" />
+      <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 sm:left-auto sm:right-[-12px] sm:translate-x-0 sm:-bottom-5 flex items-center gap-2 rounded-full bg-white px-3.5 sm:px-4 py-2 sm:py-2.5 shadow-float ring-1 ring-border/60 whitespace-nowrap">
+        <span className="inline-flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600">
+          <Check className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
         </span>
-        <span className="text-[12px] font-medium text-foreground">Agendamento confirmado</span>
+        <span className="text-[11px] sm:text-[12px] font-medium text-foreground">Agendamento confirmado</span>
+      </div>
+
+      {/* Floating response-time pill (desktop) */}
+      <div className="hidden lg:flex absolute -top-5 -right-4 items-center gap-2 rounded-2xl bg-white px-3.5 py-2.5 shadow-float ring-1 ring-border/60">
+        <span className="relative inline-flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+        </span>
+        <div className="leading-tight">
+          <div className="text-[10px] text-muted-foreground">Tempo médio de resposta</div>
+          <div className="text-[12px] font-semibold text-foreground">1.2 segundos</div>
+        </div>
       </div>
     </div>
   );

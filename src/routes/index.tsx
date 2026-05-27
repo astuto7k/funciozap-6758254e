@@ -86,45 +86,118 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-hero-radial">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 pt-12 sm:pt-20 lg:pt-24 pb-16 lg:pb-28">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="animate-fade-up">
-            <SectionEyebrow>IA para WhatsApp • Feito no Brasil</SectionEyebrow>
-            <h1 className="mt-5 text-[34px] leading-[1.1] sm:text-[44px] lg:text-[56px] font-semibold tracking-tight text-foreground">
-              Seu WhatsApp respondendo, qualificando e{" "}
-              <span className="text-primary">agendando</span> enquanto você atende.
+      {/* Subtle grid backdrop */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(15,23,42,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.05) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 75%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pt-10 sm:pt-16 lg:pt-24 pb-20 sm:pb-24 lg:pb-32">
+        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 sm:gap-14 lg:gap-16 items-center">
+          {/* Copy */}
+          <div className="animate-fade-up text-center lg:text-left">
+            <div className="flex justify-center lg:justify-start">
+              <SectionEyebrow>
+                <Sparkles className="h-3 w-3" />
+                Novo • IA conversacional para WhatsApp
+              </SectionEyebrow>
+            </div>
+
+            <h1 className="mt-5 sm:mt-6 text-[34px] leading-[1.05] sm:text-[48px] lg:text-[62px] lg:leading-[1.02] font-semibold tracking-[-0.02em] text-foreground">
+              Atenda cada lead do{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10">WhatsApp</span>
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-1 sm:bottom-1.5 h-2.5 sm:h-3 rounded-md bg-primary/15"
+                />
+              </span>
+              {" "}— mesmo quando ninguém pode responder.
             </h1>
-            <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-xl">
-              O FuncioZap transforma conversas do WhatsApp em atendimentos
-              organizados, leads qualificados e agendamentos automáticos com IA
-              humanizada.
-            </p>
-            <p className="mt-3 text-[13px] text-muted-foreground/80">
-              Feito para clínicas, consultórios e negócios que não podem perder leads.
+
+            <p className="mt-5 sm:mt-6 text-[15.5px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
+              Uma IA que conversa como gente, qualifica pacientes e clientes,
+              agenda no horário certo e devolve para você só o que precisa da
+              sua atenção.
             </p>
 
-            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:items-center justify-center lg:justify-start">
               <PrimaryCTA className="w-full sm:w-auto" />
               <SecondaryCTA className="w-full sm:w-auto" />
             </div>
 
-            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-2.5 max-w-md">
-              {[
-                "Atendimento 24/7",
-                "IA com tom humanizado",
-                "Painel por cliente",
-                "Agenda integrada ao fluxo",
-              ].map((t) => (
-                <li key={t} className="flex items-center gap-2 text-[13px] text-foreground/80">
-                  <Check className="h-4 w-4 text-primary shrink-0" />
-                  {t}
-                </li>
-              ))}
-            </ul>
+            {/* Social proof row */}
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center lg:items-start lg:justify-start gap-4 sm:gap-5">
+              <div className="flex -space-x-2">
+                {[
+                  "from-[#0A84FF] to-[#38BDF8]",
+                  "from-[#22C55E] to-[#10B981]",
+                  "from-[#F59E0B] to-[#EF4444]",
+                  "from-[#8B5CF6] to-[#EC4899]",
+                ].map((g, i) => (
+                  <span
+                    key={i}
+                    className={`inline-flex h-9 w-9 items-center justify-center rounded-full ring-2 ring-white bg-gradient-to-br ${g} text-[12px] font-semibold text-white`}
+                  >
+                    {["DR", "JM", "AC", "LB"][i]}
+                  </span>
+                ))}
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-1 text-amber-500">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5">
+                      <path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.2 1 5.9L10 15l-5.3 2.8 1-5.9L1.5 7.7l5.9-.9L10 1.5z" />
+                    </svg>
+                  ))}
+                  <span className="ml-1.5 text-[12.5px] font-semibold text-foreground">4.9/5</span>
+                </div>
+                <p className="mt-0.5 text-[12.5px] text-muted-foreground">
+                  Clínicas e negócios respondendo em segundos, 24h por dia.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="relative">
+          {/* Mockup */}
+          <div className="relative mt-2 lg:mt-0">
             <HeroMockup />
+          </div>
+        </div>
+
+        {/* Trust strip */}
+        <div className="mt-16 sm:mt-20 lg:mt-24 border-t border-border/60 pt-8 sm:pt-10">
+          <p className="text-center text-[11.5px] sm:text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Construído para times que vivem do WhatsApp
+          </p>
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
+            {[
+              { k: "< 2s", v: "Tempo médio de resposta" },
+              { k: "24/7", v: "Atendimento sem pausa" },
+              { k: "+60%", v: "Mais agendamentos confirmados" },
+              { k: "0", v: "Lead esquecido" },
+            ].map((s) => (
+              <div
+                key={s.v}
+                className="rounded-2xl border border-border/70 bg-white/70 backdrop-blur px-4 py-3.5 text-center sm:text-left"
+              >
+                <div className="text-[20px] sm:text-[22px] font-semibold tracking-tight text-foreground">
+                  {s.k}
+                </div>
+                <div className="mt-0.5 text-[11.5px] sm:text-[12px] text-muted-foreground leading-tight">
+                  {s.v}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
