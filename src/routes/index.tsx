@@ -117,7 +117,7 @@ function Hero() {
             </div>
 
             <h1 className="mt-5 sm:mt-6 text-[34px] leading-[1.05] sm:text-[48px] lg:text-[62px] lg:leading-[1.02] font-semibold tracking-[-0.02em] text-foreground">
-              Atenda cada lead do{" "}
+              Pare de perder cliente no{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">WhatsApp</span>
                 <span
@@ -125,19 +125,23 @@ function Hero() {
                   className="absolute inset-x-0 bottom-1 sm:bottom-1.5 h-2.5 sm:h-3 rounded-md bg-primary/15"
                 />
               </span>
-              {" "}— mesmo quando ninguém pode responder.
+              {" "}por demora em responder.
             </h1>
 
             <p className="mt-5 sm:mt-6 text-[15.5px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
-              Uma IA que conversa como gente, qualifica pacientes e clientes,
-              agenda no horário certo e devolve para você só o que precisa da
-              sua atenção.
+              O FuncioZap é uma IA que atende como gente, agenda na sua
+              agenda, organiza tudo dentro do CRM e devolve para você só os
+              clientes prontos para fechar — 24h por dia, em segundos.
             </p>
 
             <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:items-center justify-center lg:justify-start">
               <PrimaryCTA className="w-full sm:w-auto" />
               <SecondaryCTA className="w-full sm:w-auto" />
             </div>
+
+            <p className="mt-3 text-[12.5px] text-muted-foreground/90 text-center lg:text-left">
+              Atendimento humano em até 1 minuto • Sem cadastro, sem cartão.
+            </p>
 
             {/* Social proof row */}
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center lg:items-start lg:justify-start gap-4 sm:gap-5">
@@ -166,7 +170,7 @@ function Hero() {
                   <span className="ml-1.5 text-[12.5px] font-semibold text-foreground">4.9/5</span>
                 </div>
                 <p className="mt-0.5 text-[12.5px] text-muted-foreground">
-                  Clínicas e negócios respondendo em segundos, 24h por dia.
+                  Clínicas e negócios locais já fecham mais agendamentos com o FuncioZap.
                 </p>
               </div>
             </div>
