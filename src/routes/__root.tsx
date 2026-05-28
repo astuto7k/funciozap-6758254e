@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "FuncioZap" },
+      { name: "description", content: "Seu agente de IA para WhatsApp" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "FuncioZap" },
+      { property: "og:description", content: "Seu agente de IA para WhatsApp" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "FuncioZap" },
+      { name: "twitter:description", content: "Seu agente de IA para WhatsApp" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/94f77743-04b3-4f57-8848-2199b66bfc3c/id-preview-4fc60d1c--0bac87c9-4e7b-40e2-8e4b-f80425a1ccc1.lovable.app-1779987329765.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/94f77743-04b3-4f57-8848-2199b66bfc3c/id-preview-4fc60d1c--0bac87c9-4e7b-40e2-8e4b-f80425a1ccc1.lovable.app-1779987329765.png" },
     ],
     links: [
       {
