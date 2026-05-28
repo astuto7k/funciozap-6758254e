@@ -789,10 +789,10 @@ function Index() {
         <Features />
         <ClinicSection />
         <MidCTA />
-        <MasterPanel />
+        <CRMSection />
         <HumanWhenNeeded />
         <Benefits />
-        <DemoForm />
+        <WhatsAppCTA />
         <FAQ />
         <FinalCTA />
       </main>
