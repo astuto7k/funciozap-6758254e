@@ -13,8 +13,6 @@ import {
   PauseCircle,
   BookOpen,
   Users,
-  Wallet,
-  Phone,
   Download,
   KanbanSquare,
   TrendingUp,
