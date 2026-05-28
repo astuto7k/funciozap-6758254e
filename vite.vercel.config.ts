@@ -2,11 +2,15 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
+import path from "node:path";
 
 export default defineConfig({
   plugins: [tailwindcss(), tsConfigPaths({ projects: ["./tsconfig.json"] }), react()],
   build: {
     outDir: "dist-vercel",
     emptyOutDir: true,
+    rollupOptions: {
+      input: path.resolve(__dirname, "vercel.html"),
+    },
   },
 });
