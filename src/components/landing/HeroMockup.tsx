@@ -48,9 +48,6 @@ export function HeroMockup() {
             {/* outgoing (AI) */}
             <div className="ml-auto max-w-[85%] rounded-2xl rounded-tr-md bg-primary px-3 sm:px-3.5 py-2 sm:py-2.5 text-[12.5px] sm:text-[13px] text-primary-foreground">
               Oi Mariana! Fazemos sim 😊 A avaliação é gratuita. Posso te encaixar amanhã às 14:30 ou quinta às 10h. Qual prefere?
-              <div className="mt-1.5 flex items-center gap-1 text-[10px] text-white/80">
-                <Sparkles className="h-3 w-3" /> Respondido pela IA • 1s
-              </div>
             </div>
 
             <div className="max-w-[65%] rounded-2xl rounded-tl-md bg-secondary px-3 sm:px-3.5 py-2 sm:py-2.5 text-[12.5px] sm:text-[13px] text-foreground">

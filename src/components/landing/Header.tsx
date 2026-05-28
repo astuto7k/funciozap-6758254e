@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const links = [
   { href: "#como-funciona", label: "Como funciona" },
   { href: "#recursos", label: "Recursos" },
   { href: "#para-quem", label: "Para quem é" },
   { href: "#resultados", label: "Resultados" },
-  { href: "#demonstracao", label: "Demonstração" },
+  { href: "#crm", label: "CRM" },
 ];
 
 export function Header() {
@@ -33,10 +34,13 @@ export function Header() {
         </nav>
 
         <a
-          href="#demonstracao"
-          className="hidden lg:inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-card hover:brightness-110 transition"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden lg:inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-card hover:brightness-110 transition"
         >
-          Agendar demonstração
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
+          Falar no WhatsApp
         </a>
 
         <button
@@ -63,11 +67,14 @@ export function Header() {
               </a>
             ))}
             <a
-              href="#demonstracao"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"
             >
-              Agendar demonstração
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
+              Falar no WhatsApp
             </a>
           </div>
         </div>
