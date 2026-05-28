@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
-  component: Index,
+  component: LandingPage,
 });
 
 function PrimaryCTA({ className = "" }: { className?: string }) {
@@ -795,7 +795,7 @@ function Footer() {
   );
 }
 
-function Index() {
+export function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
