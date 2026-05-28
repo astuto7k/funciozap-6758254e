@@ -5,6 +5,6 @@
   "installCommand": "bun install",
   "outputDirectory": "dist-vercel",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/vercel.html" }
   ]
 }
