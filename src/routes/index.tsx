@@ -294,13 +294,13 @@ function HowItWorks() {
 const features = [
   { icon: Bot, title: "IA humanizada no WhatsApp", desc: "Responde com tom natural, seguindo as regras do seu negócio." },
   { icon: Calendar, title: "Agenda inteligente", desc: "Configure dias, horários, profissionais e procedimentos." },
-  { icon: MessageSquare, title: "Painel de conversas", desc: "Veja conversas por cliente e acompanhe o histórico dos leads." },
-  { icon: PauseCircle, title: "Pausar ou reativar IA", desc: "Assuma uma conversa manualmente quando quiser." },
-  { icon: BookOpen, title: "Base de conhecimento", desc: "Adicione informações para a IA responder com precisão." },
-  { icon: Users, title: "Multi-clientes", desc: "Controle vários clientes em um painel master." },
-  { icon: Wallet, title: "Custos e tokens", desc: "Acompanhe uso de IA, mensagens e estimativas de custo." },
-  { icon: Phone, title: "WhatsApp por cliente", desc: "Cada operação com seu próprio número e configuração." },
-  { icon: Download, title: "Leads e exportação", desc: "Organize contatos e exporte informações importantes." },
+  { icon: KanbanSquare, title: "CRM integrado", desc: "Cada lead vira um card com etapa, histórico e próximo passo." },
+  { icon: MessageSquare, title: "Painel de conversas", desc: "Veja todas as conversas em um só lugar e nunca mais perca um cliente." },
+  { icon: PauseCircle, title: "Assuma quando quiser", desc: "Pause a IA e responda você mesmo em conversas mais delicadas." },
+  { icon: BookOpen, title: "Treine sua IA", desc: "Adicione preços, horários e regras e a IA passa a falar como sua equipe." },
+  { icon: TrendingUp, title: "Relatórios claros", desc: "Acompanhe leads, agendamentos e taxa de conversão em tempo real." },
+  { icon: Users, title: "Qualificação automática", desc: "A IA filtra curiosos e entrega só quem está pronto para comprar." },
+  { icon: Download, title: "Exportação de leads", desc: "Leve seus contatos para qualquer ferramenta com 1 clique." },
 ];
 
 function Features() {
