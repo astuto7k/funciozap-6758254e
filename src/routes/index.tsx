@@ -222,7 +222,7 @@ const problems = [
 
 function Problem() {
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <SectionEyebrow>O problema</SectionEyebrow>
@@ -261,7 +261,7 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <section id="como-funciona" className="bg-secondary/40 py-20 sm:py-28">
+    <section id="como-funciona" className="bg-secondary/40 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <SectionEyebrow>Como o FuncioZap resolve</SectionEyebrow>
@@ -303,7 +303,7 @@ const features = [
 
 function Features() {
   return (
-    <section id="recursos" className="bg-white py-20 sm:py-28">
+    <section id="recursos" className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <SectionEyebrow>Recursos</SectionEyebrow>
@@ -344,7 +344,7 @@ function ClinicSection() {
   ];
 
   return (
-    <section id="para-quem" className="bg-secondary/40 py-20 sm:py-28">
+    <section id="para-quem" className="bg-secondary/40 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
           <SectionEyebrow>Para clínicas</SectionEyebrow>
@@ -455,7 +455,7 @@ function CRMSection() {
     },
   ];
   return (
-    <section id="crm" className="bg-white py-20 sm:py-28">
+    <section id="crm" className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <SectionEyebrow>
@@ -505,7 +505,7 @@ function CRMSection() {
 
 function HumanWhenNeeded() {
   return (
-    <section className="bg-secondary/40 py-20 sm:py-28">
+    <section className="bg-secondary/40 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <SectionEyebrow>Humano quando precisar</SectionEyebrow>
@@ -562,7 +562,7 @@ const benefits = [
 
 function Benefits() {
   return (
-    <section id="resultados" className="bg-white py-20 sm:py-28">
+    <section id="resultados" className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
           <SectionEyebrow>Benefícios</SectionEyebrow>
@@ -586,7 +586,7 @@ function Benefits() {
 
 function WhatsAppCTA() {
   return (
-    <section id="demonstracao" className="bg-secondary/40 py-20 sm:py-28">
+    <section id="demonstracao" className="bg-secondary/40 py-12 sm:py-16">
       <div className="mx-auto max-w-5xl px-5 sm:px-8 text-center">
         <SectionEyebrow>Fale com a gente agora</SectionEyebrow>
         <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
@@ -644,7 +644,7 @@ const faqs = [
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <div className="text-center">
           <SectionEyebrow>FAQ</SectionEyebrow>
@@ -687,7 +687,7 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="py-20 sm:py-28 px-5 sm:px-8">
+    <section className="py-12 sm:py-16 px-5 sm:px-8">
       <div className="mx-auto max-w-6xl rounded-3xl bg-cta-gradient text-white p-10 sm:p-16 text-center relative overflow-hidden">
         <div
           aria-hidden
