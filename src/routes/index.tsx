@@ -429,43 +429,76 @@ function MidCTA() {
   );
 }
 
-function MasterPanel() {
-  const items = [
-    { icon: Users, t: "Criar cliente" },
-    { icon: Phone, t: "Configurar WhatsApp" },
-    { icon: Bot, t: "Definir prompt" },
-    { icon: Calendar, t: "Controlar agenda" },
-    { icon: MessageSquare, t: "Ver conversas" },
-    { icon: Wallet, t: "Acompanhar custos" },
-    { icon: Download, t: "Exportar dados" },
+function CRMSection() {
+  const stages = [
+    {
+      title: "Novo lead",
+      color: "bg-primary-soft",
+      cards: [
+        { name: "Ana Souza", tag: "Clareamento", time: "há 2 min" },
+        { name: "Pedro Lima", tag: "Avaliação", time: "há 8 min" },
+      ],
+    },
+    {
+      title: "Qualificado pela IA",
+      color: "bg-primary",
+      cards: [
+        { name: "Marina Reis", tag: "Lente • R$ 12k", time: "há 14 min" },
+        { name: "Lucas Dias", tag: "Estética", time: "há 22 min" },
+      ],
+    },
+    {
+      title: "Agendado",
+      color: "bg-emerald-500",
+      cards: [
+        { name: "Carla Mota", tag: "Amanhã 14:30", time: "confirmado" },
+        { name: "João Pedro", tag: "Quinta 10:00", time: "confirmado" },
+      ],
+    },
   ];
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section id="crm" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
-          <SectionEyebrow>Painel master</SectionEyebrow>
+          <SectionEyebrow>
+            <KanbanSquare className="h-3 w-3" /> CRM integrado
+          </SectionEyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Controle todos os clientes em um só lugar.
+            Cada conversa vira um lead organizado. Nenhum cliente fica para trás.
           </h2>
           <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
-            Para quem vende automação como serviço, o FuncioZap permite administrar
-            clientes, WhatsApps, prompts, custos, conversas e configurações
-            individuais.
+            O FuncioZap não é só um chatbot. Cada lead que chega no WhatsApp
+            entra automaticamente no seu CRM, com etapa, histórico e próximo
+            passo claros. Você enxerga sua operação de vendas inteira em uma
+            única tela.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
-          {items.map(({ icon: Icon, t }) => (
-            <div
-              key={t}
-              className="rounded-2xl border border-border bg-white p-4 text-center hover:shadow-card transition"
-            >
-              <div className="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                <Icon className="h-5 w-5" />
+        <div className="mt-12 rounded-3xl border border-border bg-secondary/40 p-4 sm:p-6 shadow-card">
+          <div className="grid sm:grid-cols-3 gap-4">
+            {stages.map((s) => (
+              <div key={s.title} className="rounded-2xl bg-white border border-border/70 p-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className={`h-2 w-2 rounded-full ${s.color}`} />
+                    <h3 className="text-[13px] font-semibold text-foreground">{s.title}</h3>
+                  </div>
+                  <span className="text-[11px] text-muted-foreground">{s.cards.length}</span>
+                </div>
+                <div className="mt-3 space-y-2.5">
+                  {s.cards.map((c) => (
+                    <div key={c.name} className="rounded-xl border border-border bg-white p-3 hover:shadow-card transition">
+                      <div className="text-[13px] font-medium text-foreground">{c.name}</div>
+                      <div className="mt-0.5 flex items-center justify-between">
+                        <span className="text-[11px] text-primary font-medium">{c.tag}</span>
+                        <span className="text-[10.5px] text-muted-foreground">{c.time}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <p className="mt-3 text-[13px] font-medium text-foreground">{t}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -553,109 +586,27 @@ function Benefits() {
   );
 }
 
-function DemoForm() {
-  const [submitted, setSubmitted] = useState(false);
-
+function WhatsAppCTA() {
   return (
     <section id="demonstracao" className="bg-secondary/40 py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-        <div>
-          <SectionEyebrow>Demonstração</SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Veja o FuncioZap funcionando em uma demonstração.
-          </h2>
-          <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
-            Mostramos como a IA atende, como o painel funciona e como configurar
-            uma operação para sua clínica ou negócio.
-          </p>
-
-          <a
-            href="https://wa.me/?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20FuncioZap"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-white px-5 py-3 text-[14px] font-semibold text-foreground hover:bg-white/80 hover:shadow-card transition"
-          >
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366]">
-              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
-            </span>
-            Chamar no WhatsApp
-          </a>
+      <div className="mx-auto max-w-5xl px-5 sm:px-8 text-center">
+        <SectionEyebrow>Fale com a gente agora</SectionEyebrow>
+        <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
+          Em 5 minutos no WhatsApp você vê a IA atendendo pelo seu negócio.
+        </h2>
+        <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-2xl mx-auto">
+          Sem formulário, sem cadastro. Toque no botão abaixo, mande “oi” e
+          nossa equipe te mostra na hora como o FuncioZap pode dobrar seus
+          agendamentos.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <PrimaryCTA />
         </div>
-
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSubmitted(true);
-          }}
-          className="rounded-2xl bg-white shadow-card border border-border/60 p-6 sm:p-8 space-y-4"
-        >
-          {submitted ? (
-            <div className="text-center py-8">
-              <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600">
-                <Check className="h-6 w-6" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold text-foreground">Recebemos seu pedido!</h3>
-              <p className="mt-1 text-[14px] text-muted-foreground">
-                Vamos te chamar no WhatsApp em instantes.
-              </p>
-            </div>
-          ) : (
-            <>
-              <h3 className="text-lg font-semibold text-foreground">Quero uma demonstração</h3>
-              <div>
-                <label className="text-[13px] font-medium text-foreground" htmlFor="nome">
-                  Nome
-                </label>
-                <input
-                  id="nome"
-                  required
-                  className="mt-1.5 w-full rounded-xl border border-border bg-white px-4 py-3 text-[14px] outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder="Seu nome"
-                />
-              </div>
-              <div>
-                <label className="text-[13px] font-medium text-foreground" htmlFor="whats">
-                  WhatsApp
-                </label>
-                <input
-                  id="whats"
-                  required
-                  type="tel"
-                  className="mt-1.5 w-full rounded-xl border border-border bg-white px-4 py-3 text-[14px] outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder="(11) 99999-9999"
-                />
-              </div>
-              <div>
-                <label className="text-[13px] font-medium text-foreground" htmlFor="tipo">
-                  Tipo de negócio
-                </label>
-                <select
-                  id="tipo"
-                  className="mt-1.5 w-full rounded-xl border border-border bg-white px-4 py-3 text-[14px] outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  defaultValue=""
-                >
-                  <option value="" disabled>Selecione</option>
-                  <option>Clínica odontológica</option>
-                  <option>Clínica de estética</option>
-                  <option>Consultório</option>
-                  <option>Negócio local</option>
-                  <option>Equipe comercial</option>
-                  <option>Outro</option>
-                </select>
-              </div>
-              <button
-                type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[15px] font-semibold text-primary-foreground hover:brightness-110 transition"
-              >
-                Quero uma demonstração
-                <ArrowRight className="h-4 w-4" />
-              </button>
-              <p className="text-[11.5px] text-muted-foreground text-center">
-                Sem compromisso. Em até 24h respondemos no WhatsApp.
-              </p>
-            </>
-          )}
-        </form>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5"><Check className="h-4 w-4 text-emerald-600" /> Atendimento humano</span>
+          <span className="inline-flex items-center gap-1.5"><Check className="h-4 w-4 text-emerald-600" /> Demonstração ao vivo</span>
+          <span className="inline-flex items-center gap-1.5"><Check className="h-4 w-4 text-emerald-600" /> Sem compromisso</span>
+        </div>
       </div>
     </section>
   );
