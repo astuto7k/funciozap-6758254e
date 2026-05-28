@@ -753,7 +753,8 @@ function Footer() {
             <ul className="mt-4 space-y-2.5 text-[14px]">
               <li><a className="text-foreground hover:text-primary" href="#como-funciona">Como funciona</a></li>
               <li><a className="text-foreground hover:text-primary" href="#recursos">Recursos</a></li>
-              <li><a className="text-foreground hover:text-primary" href="#demonstracao">Demonstração</a></li>
+              <li><a className="text-foreground hover:text-primary" href="#crm">CRM</a></li>
+              <li><a className="text-foreground hover:text-primary" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
             </ul>
           </div>
           <div>
@@ -761,6 +762,17 @@ function Footer() {
               Contato
             </h4>
             <ul className="mt-4 space-y-2.5 text-[14px]">
+              <li>
+                <a
+                  className="inline-flex items-center gap-2 text-foreground hover:text-primary"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
+                  (31) 8518-8387
+                </a>
+              </li>
               <li>
                 <a
                   className="inline-flex items-center gap-2 text-foreground hover:text-primary"
