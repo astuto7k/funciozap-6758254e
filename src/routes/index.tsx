@@ -634,8 +634,12 @@ const faqs = [
     a: "A proposta é justamente criar respostas curtas, naturais e adaptadas ao tom da empresa.",
   },
   {
-    q: "Consigo usar para vários clientes?",
-    a: "Sim. O painel master foi pensado para operação multi-cliente.",
+    q: "Preciso instalar alguma coisa?",
+    a: "Não. É 100% no seu WhatsApp atual. Conectamos em poucos minutos e a IA já começa a atender.",
+  },
+  {
+    q: "Tem CRM incluso?",
+    a: "Sim. Todo lead que chega entra no CRM com etapa, histórico e próximo passo — você acompanha tudo em uma tela só.",
   },
 ];
 
@@ -697,18 +701,21 @@ function FinalCTA() {
         />
         <div className="relative">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight max-w-3xl mx-auto">
-            Pronto para transformar seu WhatsApp em uma operação inteligente?
+            Cada minuto sem responder é um cliente indo para o concorrente.
           </h2>
           <p className="mt-5 text-[16px] sm:text-[17px] text-white/80 max-w-2xl mx-auto">
-            Agende uma demonstração e veja como o FuncioZap pode atender,
-            qualificar e organizar seus leads.
+            Coloque a IA do FuncioZap para atender, qualificar e agendar agora.
+            É só clicar e falar com a gente no WhatsApp.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="#demonstracao"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-semibold text-primary hover:bg-white/90 transition"
             >
-              Agendar demonstração
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
+              Falar agora no WhatsApp
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
@@ -718,7 +725,7 @@ function FinalCTA() {
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-[15px] font-semibold text-white hover:bg-white/20 transition"
             >
               <Instagram className="h-4 w-4" />
-              Conhecer no Instagram
+              @funciozap
             </a>
           </div>
         </div>
