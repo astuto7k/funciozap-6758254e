@@ -168,7 +168,7 @@ function Hero() {
                   <span className="ml-1.5 text-[12.5px] font-semibold text-foreground">4.9/5</span>
                 </div>
                 <p className="mt-0.5 text-[12.5px] text-muted-foreground">
-                  Clínicas e negócios locais já fecham mais agendamentos com o FuncioZap.
+                  Empresas já fecham mais agendamentos com o FuncioZap.
                 </p>
               </div>
             </div>
