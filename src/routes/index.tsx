@@ -1,26 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ArrowRight,
   Clock,
-  MessageSquare,
-  UserX,
-  CalendarClock,
-  Repeat,
-  Eye,
-  Sparkles,
-  Calendar,
-  PauseCircle,
-  BookOpen,
-  Users,
-  Download,
   KanbanSquare,
-  TrendingUp,
-  Check,
-  ChevronDown,
-  Instagram,
-  ShieldCheck,
+  CalendarCheck,
+  UserCog,
+  MessageSquare,
   Bot,
+  CalendarDays,
+  PauseCircle,
+  ChevronDown,
+  Check,
+  Instagram,
+  Stethoscope,
+  Sparkles,
+  Briefcase,
+  Scissors,
+  TrendingUp,
 } from "lucide-react";
 import { Header } from "@/components/landing/Header";
 import { Logo } from "@/components/landing/Logo";
@@ -30,55 +27,50 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FuncioZap | IA para WhatsApp, Atendimento e Agendamentos" },
+      { title: "FuncioZap | IA para WhatsApp, CRM e Agendamentos" },
       {
         name: "description",
         content:
-          "Automatize atendimento no WhatsApp com IA humanizada, qualifique leads, organize conversas e agende consultas com o FuncioZap.",
+          "Automatize seu atendimento no WhatsApp com IA humanizada, organize conversas no CRM e transforme oportunidades em agendamentos com o FuncioZap.",
       },
-      { property: "og:title", content: "FuncioZap | IA para WhatsApp, Atendimento e Agendamentos" },
+      { property: "og:title", content: "FuncioZap | IA para WhatsApp, CRM e Agendamentos" },
       {
         property: "og:description",
         content:
-          "Automatize atendimento no WhatsApp com IA humanizada, qualifique leads, organize conversas e agende consultas com o FuncioZap.",
+          "Automatize seu atendimento no WhatsApp com IA humanizada, organize conversas no CRM e transforme oportunidades em agendamentos com o FuncioZap.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
   }),
   component: LandingPage,
 });
 
-function PrimaryCTA({ className = "" }: { className?: string }) {
+function PrimaryCTA({
+  className = "",
+  label = "Ver a IA atendendo no WhatsApp",
+}: {
+  className?: string;
+  label?: string;
+}) {
   return (
     <a
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm sm:text-[15px] font-semibold text-primary-foreground shadow-float hover:brightness-110 hover:-translate-y-0.5 transition ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 sm:px-6 py-3 sm:py-3.5 text-[14px] sm:text-[15px] font-semibold text-primary-foreground shadow-float hover:brightness-110 hover:-translate-y-0.5 transition min-h-[48px] ${className}`}
     >
-      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
-      Falar agora no WhatsApp
-      <ArrowRight className="h-4 w-4" />
-    </a>
-  );
-}
-
-function SecondaryCTA({ className = "" }: { className?: string }) {
-  return (
-    <a
-      href="#como-funciona"
-      className={`inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm sm:text-[15px] font-semibold text-foreground hover:bg-secondary transition ${className}`}
-    >
-      Ver como funciona
+      <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="currentColor">
+        <path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z" />
+      </svg>
+      <span className="truncate">{label}</span>
+      <ArrowRight className="h-4 w-4 shrink-0" />
     </a>
   );
 }
 
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[12px] font-medium text-primary">
+    <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[11.5px] sm:text-[12px] font-medium text-primary">
       <span className="h-1.5 w-1.5 rounded-full bg-primary" />
       {children}
     </div>
@@ -88,7 +80,6 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-hero-radial">
-      {/* Subtle grid backdrop */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -103,107 +94,45 @@ function Hero() {
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pt-10 sm:pt-16 lg:pt-24 pb-20 sm:pb-24 lg:pb-32">
-        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 sm:gap-14 lg:gap-16 items-center">
-          {/* Copy */}
-          <div className="animate-fade-up text-center lg:text-left">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pt-10 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-24">
+        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 sm:gap-12 lg:gap-16 items-center">
+          <div className="animate-fade-up text-center lg:text-left order-1">
             <div className="flex justify-center lg:justify-start">
               <SectionEyebrow>
                 <Sparkles className="h-3 w-3" />
-                Novo • IA conversacional para WhatsApp
+                IA conversacional para WhatsApp
               </SectionEyebrow>
             </div>
 
-            <h1 className="mt-5 sm:mt-6 text-[34px] leading-[1.05] sm:text-[48px] lg:text-[62px] lg:leading-[1.02] font-semibold tracking-[-0.02em] text-foreground">
-              Pare de perder cliente no{" "}
+            <h1 className="mt-5 text-[30px] leading-[1.1] sm:text-[44px] lg:text-[56px] lg:leading-[1.04] font-semibold tracking-[-0.02em] text-foreground">
+              Transforme seu{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">WhatsApp</span>
                 <span
                   aria-hidden
                   className="absolute inset-x-0 bottom-1 sm:bottom-1.5 h-2.5 sm:h-3 rounded-md bg-primary/15"
                 />
-              </span>
-              {" "}por demora em responder.
+              </span>{" "}
+              em uma operação que atende, organiza e agenda sozinha.
             </h1>
 
-            <p className="mt-5 sm:mt-6 text-[15.5px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
-              O FuncioZap é uma IA que atende como gente, agenda na sua
-              agenda, organiza tudo dentro do CRM e devolve para você só os
-              clientes prontos para fechar — 24h por dia, em segundos.
+            <p className="mt-5 text-[15px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
+              O FuncioZap usa IA para responder seus clientes em segundos,
+              qualificar oportunidades, organizar conversas no CRM e preencher
+              sua agenda sem deixar sua equipe perder o controle.
             </p>
 
-            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:items-center justify-center lg:justify-start">
-              <PrimaryCTA className="w-full sm:w-auto" />
-              <SecondaryCTA className="w-full sm:w-auto" />
+            <div className="mt-7 flex justify-center lg:justify-start">
+              <PrimaryCTA className="w-full sm:w-auto max-w-full" />
             </div>
 
             <p className="mt-3 text-[12.5px] text-muted-foreground/90 text-center lg:text-left">
-              Atendimento humano em até 1 minuto • Sem cadastro, sem cartão.
+              Demonstração rápida pelo WhatsApp. Sem formulário.
             </p>
-
-            {/* Social proof row */}
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center lg:items-start lg:justify-start gap-4 sm:gap-5">
-              <div className="flex -space-x-2">
-                {[
-                  "from-[#0A84FF] to-[#38BDF8]",
-                  "from-[#22C55E] to-[#10B981]",
-                  "from-[#F59E0B] to-[#EF4444]",
-                  "from-[#8B5CF6] to-[#EC4899]",
-                ].map((g, i) => (
-                  <span
-                    key={i}
-                    className={`inline-flex h-9 w-9 items-center justify-center rounded-full ring-2 ring-white bg-gradient-to-br ${g} text-[12px] font-semibold text-white`}
-                  >
-                    {["DR", "JM", "AC", "LB"][i]}
-                  </span>
-                ))}
-              </div>
-              <div className="text-center sm:text-left">
-                <div className="flex items-center justify-center sm:justify-start gap-1 text-amber-500">
-                  {[0, 1, 2, 3, 4].map((i) => (
-                    <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5">
-                      <path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.2 1 5.9L10 15l-5.3 2.8 1-5.9L1.5 7.7l5.9-.9L10 1.5z" />
-                    </svg>
-                  ))}
-                  <span className="ml-1.5 text-[12.5px] font-semibold text-foreground">4.9/5</span>
-                </div>
-                <p className="mt-0.5 text-[12.5px] text-muted-foreground">
-                  Empresas já fecham mais agendamentos com o FuncioZap.
-                </p>
-              </div>
-            </div>
           </div>
 
-          {/* Mockup */}
-          <div className="relative mt-2 lg:mt-0">
+          <div className="relative mt-2 lg:mt-0 order-2 w-full max-w-full overflow-hidden">
             <HeroMockup />
-          </div>
-        </div>
-
-        {/* Trust strip */}
-        <div className="mt-16 sm:mt-20 lg:mt-24 border-t border-border/60 pt-8 sm:pt-10">
-          <p className="text-center text-[11.5px] sm:text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Construído para times que vivem do WhatsApp
-          </p>
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            {[
-              { k: "< 2s", v: "Tempo médio de resposta" },
-              { k: "24/7", v: "Atendimento sem pausa" },
-              { k: "+60%", v: "Mais agendamentos confirmados" },
-              { k: "0", v: "Lead esquecido" },
-            ].map((s) => (
-              <div
-                key={s.v}
-                className="rounded-2xl border border-border/70 bg-white/70 backdrop-blur px-4 py-3.5 text-center sm:text-left"
-              >
-                <div className="text-[20px] sm:text-[22px] font-semibold tracking-tight text-foreground">
-                  {s.k}
-                </div>
-                <div className="mt-0.5 text-[11.5px] sm:text-[12px] text-muted-foreground leading-tight">
-                  {s.v}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -211,39 +140,30 @@ function Hero() {
   );
 }
 
-const problems = [
-  { icon: Clock, title: "Demora para responder" },
-  { icon: MessageSquare, title: "Conversas espalhadas" },
-  { icon: UserX, title: "Leads sem acompanhamento" },
-  { icon: CalendarClock, title: "Agendamentos feitos manualmente" },
-  { icon: Repeat, title: "Tempo perdido com perguntas repetidas" },
-  { icon: Eye, title: "Falta de visão do que acontece" },
+const benefits = [
+  { icon: Clock, title: "Respostas rápidas 24/7", desc: "Sua operação nunca dorme." },
+  { icon: KanbanSquare, title: "CRM de conversas integrado", desc: "Cada contato no lugar certo." },
+  { icon: CalendarCheck, title: "Agendamentos organizados", desc: "Horários, serviços e profissionais." },
+  { icon: UserCog, title: "Atendimento humano quando precisar", desc: "Sua equipe assume a qualquer momento." },
 ];
 
-function Problem() {
+function BenefitsStrip() {
   return (
-    <section className="bg-white py-12 sm:py-16">
+    <section className="bg-white border-y border-border/60 py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="max-w-3xl">
-          <SectionEyebrow>O problema</SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Leads chegam. Mas nem sempre alguém responde a tempo.
-          </h2>
-          <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
-            Enquanto sua equipe está atendendo, muitos contatos ficam esperando no
-            WhatsApp. Alguns perguntam preço, outros querem horário, outros somem
-            antes de receber resposta.
-          </p>
-        </div>
-
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {problems.map(({ icon: Icon, title }) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {benefits.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="rounded-2xl border border-border bg-secondary/40 p-6 hover:bg-white hover:shadow-card transition"
+              className="flex items-start gap-3 rounded-2xl border border-border bg-secondary/40 p-4 sm:p-5"
             >
-              <Icon className="h-5 w-5 text-primary" />
-              <p className="mt-4 text-[15px] font-medium text-foreground">{title}</p>
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icon className="h-5 w-5" />
+              </span>
+              <div className="min-w-0">
+                <p className="text-[14.5px] font-semibold text-foreground">{title}</p>
+                <p className="mt-0.5 text-[13px] text-muted-foreground leading-snug">{desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -253,33 +173,234 @@ function Problem() {
 }
 
 const steps = [
-  { n: "01", title: "O lead chama no WhatsApp", desc: "Mensagens chegam de Instagram, anúncio, site ou indicação." },
-  { n: "02", title: "A IA entende e responde", desc: "Com tom humano, contexto do seu negócio e regras configuradas." },
-  { n: "03", title: "Qualifica, agenda ou encaminha", desc: "Marca avaliação, tira dúvidas ou passa para sua equipe." },
-  { n: "04", title: "Você acompanha no painel", desc: "Conversas, leads, agenda e custos em um só lugar." },
+  { icon: MessageSquare, title: "O cliente chama no WhatsApp", desc: "Mensagens de Instagram, anúncio, site ou indicação chegam num só lugar." },
+  { icon: Bot, title: "A IA responde, qualifica e entende a necessidade", desc: "Com tom natural, regras do seu negócio e contexto da conversa." },
+  { icon: CalendarCheck, title: "O FuncioZap agenda ou encaminha para sua equipe", desc: "Marca o horário ou repassa a conversa para um atendente humano." },
 ];
 
 function HowItWorks() {
   return (
-    <section id="como-funciona" className="bg-secondary/40 py-12 sm:py-16">
+    <section id="como-funciona" className="bg-secondary/40 py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
-          <SectionEyebrow>Como o FuncioZap resolve</SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Uma IA treinada para atender como parte da sua equipe.
+          <SectionEyebrow>Como funciona</SectionEyebrow>
+          <h2 className="mt-4 text-[26px] sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground leading-tight">
+            Do primeiro oi ao agendamento.
           </h2>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {steps.map((s) => (
+        <div className="mt-10 grid md:grid-cols-3 gap-4">
+          {steps.map(({ icon: Icon, title, desc }, i) => (
             <div
-              key={s.n}
-              className="relative rounded-2xl bg-white p-6 shadow-card border border-border/60"
+              key={title}
+              className="relative rounded-2xl bg-white p-5 sm:p-6 shadow-card border border-border/60"
             >
-              <span className="text-[12px] font-semibold text-primary">{s.n}</span>
-              <h3 className="mt-2 text-[17px] font-semibold text-foreground">{s.title}</h3>
-              <p className="mt-2 text-[14px] text-muted-foreground leading-relaxed">
-                {s.desc}
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <span className="text-[12px] font-semibold text-primary">
+                  Etapa 0{i + 1}
+                </span>
+              </div>
+              <h3 className="mt-4 text-[16.5px] font-semibold text-foreground leading-snug">
+                {title}
+              </h3>
+              <p className="mt-2 text-[14px] text-muted-foreground leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductSection() {
+  return (
+    <section id="recursos" className="bg-white py-14 sm:py-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="max-w-3xl">
+          <SectionEyebrow>O painel</SectionEyebrow>
+          <h2 className="mt-4 text-[26px] sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground leading-tight">
+            Mais do que um chatbot: uma operação comercial organizada.
+          </h2>
+          <p className="mt-4 text-[15px] sm:text-[17px] leading-relaxed text-muted-foreground">
+            Conversas, leads, agenda e profissionais em uma única tela — com a
+            IA trabalhando ao seu lado e sua equipe no controle.
+          </p>
+        </div>
+
+        <div className="mt-10 grid lg:grid-cols-12 gap-4 sm:gap-5">
+          {/* Inbox */}
+          <div className="lg:col-span-7 rounded-2xl border border-border bg-white shadow-card overflow-hidden">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-border">
+              <div className="flex items-center gap-2">
+                <MessageSquare className="h-4 w-4 text-primary" />
+                <h3 className="text-[14px] font-semibold text-foreground">Caixa de entrada</h3>
+              </div>
+              <span className="text-[11px] text-muted-foreground">12 ativas</span>
+            </div>
+            <ul className="divide-y divide-border">
+              {[
+                { n: "Mariana Silva", m: "Pode ser amanhã 14:30!", t: "agora", b: "bg-primary" },
+                { n: "Carlos Lima", m: "Quanto custa a limpeza?", t: "2 min", b: "bg-emerald-500" },
+                { n: "Ana Souza", m: "Vocês atendem sábado?", t: "10 min", b: "bg-amber-500" },
+                { n: "João Pedro", m: "Confirmado para quinta 10h", t: "32 min", b: "bg-primary" },
+              ].map((c) => (
+                <li key={c.n} className="flex items-center gap-3 px-5 py-3.5">
+                  <span className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${c.b}/15 text-foreground text-[12px] font-semibold`}>
+                    {c.n.split(" ").map((x) => x[0]).slice(0, 2).join("")}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-[13.5px] font-medium text-foreground truncate">{c.n}</span>
+                      <span className="text-[11px] text-muted-foreground shrink-0">{c.t}</span>
+                    </div>
+                    <p className="text-[12.5px] text-muted-foreground truncate">{c.m}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Pause IA card */}
+          <div className="lg:col-span-5 rounded-2xl border border-border bg-secondary/40 p-5 sm:p-6 flex flex-col">
+            <div className="flex items-center gap-2">
+              <PauseCircle className="h-4 w-4 text-primary" />
+              <h3 className="text-[14px] font-semibold text-foreground">Controle humano</h3>
+            </div>
+            <p className="mt-2 text-[13.5px] text-muted-foreground leading-relaxed">
+              Pause a IA em conversas delicadas, responda você mesmo e reative
+              o atendimento automático quando quiser.
+            </p>
+            <div className="mt-4 rounded-xl bg-white border border-border p-4 space-y-2">
+              <div className="max-w-[80%] rounded-2xl rounded-tl-md bg-secondary px-3 py-2 text-[12.5px] text-foreground">
+                Quero entender as formas de pagamento.
+              </div>
+              <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-md bg-primary px-3 py-2 text-[12.5px] text-primary-foreground">
+                Vou chamar a Camila aqui pra te explicar 👋
+              </div>
+              <button className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-white py-2.5 text-[12.5px] font-semibold text-foreground">
+                <PauseCircle className="h-4 w-4" /> Pausar IA e responder
+              </button>
+            </div>
+          </div>
+
+          {/* CRM */}
+          <div className="lg:col-span-7 rounded-2xl border border-border bg-white shadow-card p-5 sm:p-6">
+            <div className="flex items-center gap-2">
+              <KanbanSquare className="h-4 w-4 text-primary" />
+              <h3 className="text-[14px] font-semibold text-foreground">Leads no CRM</h3>
+            </div>
+            <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
+              {[
+                { t: "Novo", c: "bg-primary-soft", items: ["Ana Souza", "Pedro Lima"] },
+                { t: "Qualificado", c: "bg-primary", items: ["Marina Reis", "Lucas Dias"] },
+                { t: "Agendado", c: "bg-emerald-500", items: ["Carla Mota", "João P."] },
+              ].map((col) => (
+                <div key={col.t} className="rounded-xl bg-secondary/50 border border-border p-2.5 sm:p-3">
+                  <div className="flex items-center gap-1.5">
+                    <span className={`h-2 w-2 rounded-full ${col.c}`} />
+                    <span className="text-[11px] font-semibold text-foreground truncate">{col.t}</span>
+                  </div>
+                  <div className="mt-2 space-y-1.5">
+                    {col.items.map((n) => (
+                      <div key={n} className="rounded-lg bg-white border border-border px-2 py-1.5 text-[11.5px] font-medium text-foreground truncate">
+                        {n}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Agenda */}
+          <div className="lg:col-span-5 rounded-2xl border border-border bg-white shadow-card p-5 sm:p-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <CalendarDays className="h-4 w-4 text-primary" />
+                <h3 className="text-[14px] font-semibold text-foreground">Agenda do dia</h3>
+              </div>
+              <span className="text-[11px] text-primary font-medium">Dra. Camila</span>
+            </div>
+            <div className="mt-3 space-y-2">
+              {[
+                { t: "09:00", n: "Ana Souza", p: "Avaliação" },
+                { t: "10:30", n: "Carlos Lima", p: "Limpeza" },
+                { t: "14:30", n: "Mariana Silva", p: "Clareamento" },
+              ].map((r) => (
+                <div key={r.t} className="flex items-center gap-3 rounded-xl border border-border bg-white px-3 py-2.5">
+                  <span className="h-8 w-1 rounded-full bg-primary shrink-0" />
+                  <div className="w-12 text-[11.5px] font-semibold text-muted-foreground">{r.t}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[12.5px] font-medium text-foreground truncate">{r.n}</div>
+                    <div className="text-[11px] text-muted-foreground truncate">{r.p}</div>
+                  </div>
+                  <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full shrink-0">
+                    Ok
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Indicators */}
+          <div className="lg:col-span-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            {[
+              { k: "Conversas hoje", v: "128", i: MessageSquare },
+              { k: "Leads qualificados", v: "42", i: TrendingUp },
+              { k: "Agendamentos", v: "19", i: CalendarCheck },
+              { k: "Tempo médio resp.", v: "1.2s", i: Clock },
+            ].map(({ k, v, i: Icon }) => (
+              <div key={k} className="rounded-2xl border border-border bg-secondary/40 p-4">
+                <div className="flex items-center gap-2">
+                  <Icon className="h-4 w-4 text-primary" />
+                  <span className="text-[11.5px] text-muted-foreground">{k}</span>
+                </div>
+                <div className="mt-2 text-[22px] font-semibold tracking-tight text-foreground">{v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const useCases = [
+  { icon: Stethoscope, title: "Clínicas e consultórios" },
+  { icon: Scissors, title: "Estética e beleza" },
+  { icon: CalendarDays, title: "Serviços com horário marcado" },
+  { icon: Briefcase, title: "Equipes comerciais no WhatsApp" },
+];
+
+function ForBusiness() {
+  return (
+    <section className="bg-secondary/40 py-14 sm:py-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="max-w-3xl">
+          <SectionEyebrow>Para quem é</SectionEyebrow>
+          <h2 className="mt-4 text-[26px] sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground leading-tight">
+            Feito para negócios que não podem perder oportunidades no WhatsApp.
+          </h2>
+          <p className="mt-4 text-[15px] sm:text-[17px] leading-relaxed text-muted-foreground">
+            Organize solicitações, distribua atendimentos, acompanhe
+            profissionais e transforme conversas em agendamentos confirmados.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {useCases.map(({ icon: Icon, title }) => (
+            <div
+              key={title}
+              className="rounded-2xl border border-border bg-white p-5 hover:shadow-card transition"
+            >
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icon className="h-5 w-5" />
+              </span>
+              <p className="mt-4 text-[14px] sm:text-[15px] font-semibold text-foreground leading-snug">
+                {title}
               </p>
             </div>
           ))}
@@ -289,371 +410,42 @@ function HowItWorks() {
   );
 }
 
-const features = [
-  { icon: Bot, title: "IA humanizada no WhatsApp", desc: "Responde com tom natural, seguindo as regras do seu negócio." },
-  { icon: Calendar, title: "Agenda inteligente", desc: "Configure dias, horários, profissionais e procedimentos." },
-  { icon: KanbanSquare, title: "CRM integrado", desc: "Cada lead vira um card com etapa, histórico e próximo passo." },
-  { icon: MessageSquare, title: "Painel de conversas", desc: "Veja todas as conversas em um só lugar e nunca mais perca um cliente." },
-  { icon: PauseCircle, title: "Assuma quando quiser", desc: "Pause a IA e responda você mesmo em conversas mais delicadas." },
-  { icon: BookOpen, title: "Treine sua IA", desc: "Adicione preços, horários e regras e a IA passa a falar como sua equipe." },
-  { icon: TrendingUp, title: "Relatórios claros", desc: "Acompanhe leads, agendamentos e taxa de conversão em tempo real." },
-  { icon: Users, title: "Qualificação automática", desc: "A IA filtra curiosos e entrega só quem está pronto para comprar." },
-  { icon: Download, title: "Exportação de leads", desc: "Leve seus contatos para qualquer ferramenta com 1 clique." },
-];
-
-function Features() {
-  return (
-    <section id="recursos" className="bg-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="max-w-3xl">
-          <SectionEyebrow>Recursos</SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Tudo que você precisa para transformar WhatsApp em operação comercial.
-          </h2>
-        </div>
-
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="group rounded-2xl border border-border bg-white p-6 hover:shadow-card hover:-translate-y-0.5 transition"
-            >
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition">
-                <Icon className="h-5 w-5" />
-              </div>
-              <h3 className="mt-4 text-[16px] font-semibold text-foreground">{title}</h3>
-              <p className="mt-1.5 text-[14px] text-muted-foreground leading-relaxed">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ClinicSection() {
-  const uses = [
-    "Marcação de avaliação",
-    "Confirmação de consulta",
-    "Reagendamento",
-    "Resposta sobre procedimentos",
-    "Captação de leads do Instagram",
-    "Organização por paciente",
-    "Aviso de atraso ou cancelamento",
-    "Histórico de atendimento",
-  ];
-
-  return (
-    <section id="para-quem" className="bg-secondary/40 py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div>
-          <SectionEyebrow>Para clínicas</SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Perfeito para clínicas que vivem de agendamento.
-          </h2>
-          <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
-            O FuncioZap ajuda sua clínica a responder pacientes, tirar dúvidas
-            iniciais, organizar solicitações e reduzir oportunidades perdidas.
-          </p>
-
-          <ul className="mt-8 grid sm:grid-cols-2 gap-2.5">
-            {uses.map((u) => (
-              <li key={u} className="flex items-start gap-2 text-[14px] text-foreground/85">
-                <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                {u}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Agenda mockup */}
-        <div className="relative">
-          <div className="rounded-2xl bg-white shadow-float ring-1 ring-border/60 overflow-hidden">
-            <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-              <div>
-                <h4 className="text-[15px] font-semibold text-foreground">Agenda semanal</h4>
-                <p className="text-[12px] text-muted-foreground">Seg, 26 Mai — Sex, 30 Mai</p>
-              </div>
-              <span className="text-[12px] font-medium text-primary">Dra. Camila</span>
-            </div>
-            <div className="p-4 space-y-2">
-              {[
-                { t: "09:00", n: "Ana Souza", p: "Avaliação", c: "bg-primary" },
-                { t: "10:30", n: "Carlos Lima", p: "Limpeza", c: "bg-emerald-500" },
-                { t: "13:00", n: "Marina Reis", p: "Clareamento", c: "bg-primary-soft" },
-                { t: "14:30", n: "João Pedro", p: "Avaliação", c: "bg-amber-500" },
-                { t: "16:00", n: "Beatriz Alves", p: "Retorno", c: "bg-primary" },
-              ].map((row) => (
-                <div
-                  key={row.t}
-                  className="flex items-center gap-3 rounded-xl border border-border bg-white px-3 py-3 hover:bg-secondary/40 transition"
-                >
-                  <span className={`h-9 w-1 rounded-full ${row.c}`} />
-                  <div className="w-12 text-[12px] font-semibold text-muted-foreground">{row.t}</div>
-                  <div className="flex-1">
-                    <div className="text-[13.5px] font-medium text-foreground">{row.n}</div>
-                    <div className="text-[11.5px] text-muted-foreground">{row.p}</div>
-                  </div>
-                  <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-                    Confirmado
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function MidCTA() {
-  return (
-    <section className="bg-white py-12">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
-        <div className="rounded-3xl border border-border bg-secondary/40 p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground tracking-tight">
-              Pronto para ver o FuncioZap atendendo pela sua equipe?
-            </h3>
-            <p className="mt-1 text-[14px] text-muted-foreground">
-              Demonstração rápida, sob medida para o seu negócio.
-            </p>
-          </div>
-          <PrimaryCTA />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CRMSection() {
-  const stages = [
-    {
-      title: "Novo lead",
-      color: "bg-primary-soft",
-      cards: [
-        { name: "Ana Souza", tag: "Clareamento", time: "há 2 min" },
-        { name: "Pedro Lima", tag: "Avaliação", time: "há 8 min" },
-      ],
-    },
-    {
-      title: "Qualificado pela IA",
-      color: "bg-primary",
-      cards: [
-        { name: "Marina Reis", tag: "Lente • R$ 12k", time: "há 14 min" },
-        { name: "Lucas Dias", tag: "Estética", time: "há 22 min" },
-      ],
-    },
-    {
-      title: "Agendado",
-      color: "bg-emerald-500",
-      cards: [
-        { name: "Carla Mota", tag: "Amanhã 14:30", time: "confirmado" },
-        { name: "João Pedro", tag: "Quinta 10:00", time: "confirmado" },
-      ],
-    },
-  ];
-  return (
-    <section id="crm" className="bg-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="max-w-3xl">
-          <SectionEyebrow>
-            <KanbanSquare className="h-3 w-3" /> CRM integrado
-          </SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Cada conversa vira um lead organizado. Nenhum cliente fica para trás.
-          </h2>
-          <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
-            O FuncioZap não é só um chatbot. Cada lead que chega no WhatsApp
-            entra automaticamente no seu CRM, com etapa, histórico e próximo
-            passo claros. Você enxerga sua operação de vendas inteira em uma
-            única tela.
-          </p>
-        </div>
-
-        <div className="mt-12 rounded-3xl border border-border bg-secondary/40 p-4 sm:p-6 shadow-card">
-          <div className="grid sm:grid-cols-3 gap-4">
-            {stages.map((s) => (
-              <div key={s.title} className="rounded-2xl bg-white border border-border/70 p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className={`h-2 w-2 rounded-full ${s.color}`} />
-                    <h3 className="text-[13px] font-semibold text-foreground">{s.title}</h3>
-                  </div>
-                  <span className="text-[11px] text-muted-foreground">{s.cards.length}</span>
-                </div>
-                <div className="mt-3 space-y-2.5">
-                  {s.cards.map((c) => (
-                    <div key={c.name} className="rounded-xl border border-border bg-white p-3 hover:shadow-card transition">
-                      <div className="text-[13px] font-medium text-foreground">{c.name}</div>
-                      <div className="mt-0.5 flex items-center justify-between">
-                        <span className="text-[11px] text-primary font-medium">{c.tag}</span>
-                        <span className="text-[10.5px] text-muted-foreground">{c.time}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HumanWhenNeeded() {
-  return (
-    <section className="bg-secondary/40 py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <SectionEyebrow>Humano quando precisar</SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            A IA atende. Você assume quando quiser.
-          </h2>
-          <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
-            Pause a IA em conversas específicas, responda manualmente e depois
-            reative o atendimento automático. Ideal para negociações sensíveis,
-            dúvidas complexas ou fechamento.
-          </p>
-        </div>
-
-        <div className="rounded-2xl bg-white shadow-float ring-1 ring-border/60 p-5">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <span className="h-8 w-8 rounded-full bg-primary/10 inline-flex items-center justify-center text-primary text-[13px] font-semibold">M</span>
-              <div>
-                <div className="text-[13px] font-medium text-foreground">Mariana Silva</div>
-                <div className="text-[11px] text-emerald-600">online</div>
-              </div>
-            </div>
-            <button className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 text-primary px-3 py-1.5 text-[12px] font-semibold">
-              <Sparkles className="h-3.5 w-3.5" /> IA ativa
-            </button>
-          </div>
-          <div className="space-y-2.5">
-            <div className="max-w-[78%] rounded-2xl rounded-tl-md bg-secondary px-3.5 py-2.5 text-[13px]">
-              Quero entender melhor as formas de pagamento.
-            </div>
-            <div className="ml-auto max-w-[78%] rounded-2xl rounded-tr-md bg-primary px-3.5 py-2.5 text-[13px] text-white">
-              Claro! Vou chamar a Camila aqui para te explicar com calma 👋
-            </div>
-            <button className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-white py-2.5 text-[13px] font-semibold text-foreground hover:bg-secondary transition">
-              <PauseCircle className="h-4 w-4" /> Pausar IA e responder manualmente
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const benefits = [
-  "Mais velocidade no primeiro atendimento",
-  "Menos leads esquecidos",
-  "Mais agendamentos",
-  "Menos trabalho repetitivo",
-  "Melhor controle por cliente",
-  "Atendimento padronizado",
-  "Funcionando fora do horário comercial",
-  "Mais clareza sobre custos e performance",
-];
-
-function Benefits() {
-  return (
-    <section id="resultados" className="bg-white py-12 sm:py-16">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="max-w-3xl">
-          <SectionEyebrow>Benefícios</SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            O resultado é uma operação mais rápida, organizada e previsível.
-          </h2>
-        </div>
-
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {benefits.map((b) => (
-            <div key={b} className="rounded-2xl border border-border bg-secondary/40 p-5">
-              <ShieldCheck className="h-5 w-5 text-primary" />
-              <p className="mt-3 text-[14.5px] font-medium text-foreground">{b}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function WhatsAppCTA() {
-  return (
-    <section id="demonstracao" className="bg-secondary/40 py-12 sm:py-16">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8 text-center">
-        <SectionEyebrow>Fale com a gente agora</SectionEyebrow>
-        <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-          Em 5 minutos no WhatsApp você vê a IA atendendo pelo seu negócio.
-        </h2>
-        <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-2xl mx-auto">
-          Sem formulário, sem cadastro. Toque no botão abaixo, mande “oi” e
-          nossa equipe te mostra na hora como o FuncioZap pode dobrar seus
-          agendamentos.
-        </p>
-        <div className="mt-8 flex justify-center">
-          <PrimaryCTA />
-        </div>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] text-muted-foreground">
-          <span className="inline-flex items-center gap-1.5"><Check className="h-4 w-4 text-emerald-600" /> Atendimento humano</span>
-          <span className="inline-flex items-center gap-1.5"><Check className="h-4 w-4 text-emerald-600" /> Demonstração ao vivo</span>
-          <span className="inline-flex items-center gap-1.5"><Check className="h-4 w-4 text-emerald-600" /> Sem compromisso</span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const faqs = [
   {
-    q: "O FuncioZap substitui minha equipe?",
-    a: "Não. Ele automatiza o primeiro atendimento e tarefas repetitivas, mas sua equipe pode assumir quando quiser.",
+    q: "A IA substitui minha equipe?",
+    a: "Não. Ela automatiza o primeiro atendimento e tarefas repetitivas, e sua equipe assume qualquer conversa quando quiser.",
   },
   {
-    q: "Funciona com qualquer tipo de clínica?",
-    a: "Sim, desde que os fluxos, horários e informações sejam configurados para cada operação.",
+    q: "A IA pode agendar clientes?",
+    a: "Sim. Ela segue os horários, serviços e profissionais configurados no painel e marca direto na sua agenda.",
   },
   {
-    q: "A IA pode agendar consultas?",
-    a: "Sim. Ela segue os horários e regras configurados no painel.",
-  },
-  {
-    q: "Posso ver as conversas?",
-    a: "Sim. O painel permite acompanhar conversas e histórico.",
+    q: "Posso acompanhar as conversas?",
+    a: "Sim. O painel centraliza todas as conversas, com histórico completo por cliente.",
   },
   {
     q: "O atendimento parece robótico?",
-    a: "A proposta é justamente criar respostas curtas, naturais e adaptadas ao tom da empresa.",
+    a: "Não. As respostas são curtas, naturais e adaptadas ao tom da sua empresa.",
   },
   {
-    q: "Preciso instalar alguma coisa?",
-    a: "Não. É 100% no seu WhatsApp atual. Conectamos em poucos minutos e a IA já começa a atender.",
-  },
-  {
-    q: "Tem CRM incluso?",
-    a: "Sim. Todo lead que chega entra no CRM com etapa, histórico e próximo passo — você acompanha tudo em uma tela só.",
+    q: "Preciso trocar meu número de WhatsApp?",
+    a: "Não. O FuncioZap conecta no seu número atual e começa a atender em poucos minutos.",
   },
 ];
 
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-white py-12 sm:py-16">
+    <section id="faq" className="bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <div className="text-center">
           <SectionEyebrow>FAQ</SectionEyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-4 text-[26px] sm:text-4xl font-semibold tracking-tight text-foreground">
             Perguntas frequentes
           </h2>
         </div>
 
-        <div className="mt-10 space-y-3">
+        <div className="mt-8 sm:mt-10 space-y-3">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
@@ -663,10 +455,10 @@ function FAQ() {
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left min-h-[56px]"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-[15px] font-medium text-foreground">{f.q}</span>
+                  <span className="text-[14.5px] sm:text-[15px] font-medium text-foreground">{f.q}</span>
                   <ChevronDown
                     className={`h-4 w-4 text-muted-foreground shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
                   />
@@ -688,7 +480,7 @@ function FAQ() {
 function FinalCTA() {
   return (
     <section className="py-12 sm:py-16 px-5 sm:px-8">
-      <div className="mx-auto max-w-6xl rounded-3xl bg-cta-gradient text-white p-10 sm:p-16 text-center relative overflow-hidden">
+      <div className="mx-auto max-w-6xl rounded-3xl bg-cta-gradient text-white p-8 sm:p-14 text-center relative overflow-hidden">
         <div
           aria-hidden
           className="absolute inset-0 opacity-30"
@@ -698,32 +490,25 @@ function FinalCTA() {
           }}
         />
         <div className="relative">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight max-w-3xl mx-auto">
-            Cada minuto sem responder é um cliente indo para o concorrente.
+          <h2 className="text-[26px] sm:text-4xl lg:text-5xl font-semibold tracking-tight max-w-3xl mx-auto leading-tight">
+            Cada minuto sem resposta pode ser uma oportunidade perdida.
           </h2>
-          <p className="mt-5 text-[16px] sm:text-[17px] text-white/80 max-w-2xl mx-auto">
-            Coloque a IA do FuncioZap para atender, qualificar e agendar agora.
-            É só clicar e falar com a gente no WhatsApp.
+          <p className="mt-4 sm:mt-5 text-[15px] sm:text-[17px] text-white/85 max-w-2xl mx-auto leading-relaxed">
+            Veja como o FuncioZap pode atender, organizar e agendar pelo
+            WhatsApp da sua empresa.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="mt-7 sm:mt-8 flex justify-center">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-semibold text-primary hover:bg-white/90 transition"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-semibold text-primary hover:bg-white/90 transition min-h-[48px]"
             >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
-              Falar agora no WhatsApp
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+                <path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z" />
+              </svg>
+              Quero ver uma demonstração
               <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="https://instagram.com/funciozap"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-[15px] font-semibold text-white hover:bg-white/20 transition"
-            >
-              <Instagram className="h-4 w-4" />
-              @funciozap
             </a>
           </div>
         </div>
@@ -735,85 +520,88 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="bg-white border-t border-border">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 py-12 grid md:grid-cols-3 gap-8">
-        <div className="md:col-span-1">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 py-10 sm:py-12 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+        <div className="max-w-sm">
           <Logo />
-          <p className="mt-4 text-[13.5px] text-muted-foreground max-w-xs leading-relaxed">
-            Automação inteligente para WhatsApp, atendimento e agendamentos.
+          <p className="mt-4 text-[13.5px] text-muted-foreground leading-relaxed">
+            IA para WhatsApp com CRM, agenda e controle humano — pronto para
+            atender e agendar pela sua empresa.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:col-span-2 gap-8">
-          <div>
-            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-muted-foreground">
-              Navegação
-            </h4>
-            <ul className="mt-4 space-y-2.5 text-[14px]">
-              <li><a className="text-foreground hover:text-primary" href="#como-funciona">Como funciona</a></li>
-              <li><a className="text-foreground hover:text-primary" href="#recursos">Recursos</a></li>
-              <li><a className="text-foreground hover:text-primary" href="#crm">CRM</a></li>
-              <li><a className="text-foreground hover:text-primary" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-muted-foreground">
-              Contato
-            </h4>
-            <ul className="mt-4 space-y-2.5 text-[14px]">
-              <li>
-                <a
-                  className="inline-flex items-center gap-2 text-foreground hover:text-primary"
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
-                  (31) 8518-8387
-                </a>
-              </li>
-              <li>
-                <a
-                  className="inline-flex items-center gap-2 text-foreground hover:text-primary"
-                  href="https://instagram.com/funciozap"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Instagram className="h-4 w-4" /> @funciozap
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div className="flex flex-col gap-2.5 text-[14px]">
+          <a
+            className="inline-flex items-center gap-2 text-foreground hover:text-primary"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+              <path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z" />
+            </svg>
+            WhatsApp
+          </a>
+          <a
+            className="inline-flex items-center gap-2 text-foreground hover:text-primary"
+            href="https://instagram.com/funciozap"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Instagram className="h-4 w-4" /> @funciozap
+          </a>
         </div>
       </div>
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-5 text-[12px] text-muted-foreground flex flex-col sm:flex-row justify-between gap-2">
           <p>© {new Date().getFullYear()} FuncioZap. Todos os direitos reservados.</p>
-          <p>Feito para clínicas e negócios que não podem perder leads.</p>
         </div>
       </div>
     </footer>
   );
 }
 
+function MobileStickyCTA() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 600);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <div
+      className={`lg:hidden fixed inset-x-0 bottom-0 z-40 px-4 pb-[max(env(safe-area-inset-bottom),12px)] pt-3 bg-gradient-to-t from-background via-background/95 to-background/0 transition-opacity ${show ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+    >
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-2 w-full rounded-full bg-primary px-5 py-3.5 text-[14.5px] font-semibold text-primary-foreground shadow-float min-h-[48px]"
+      >
+        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+          <path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z" />
+        </svg>
+        Ver demonstração no WhatsApp
+      </a>
+    </div>
+  );
+}
+
 export function LandingPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       <main>
         <Hero />
-        <Problem />
+        <BenefitsStrip />
         <HowItWorks />
-        <Features />
-        <ClinicSection />
-        <MidCTA />
-        <CRMSection />
-        <HumanWhenNeeded />
-        <Benefits />
-        <WhatsAppCTA />
+        <ProductSection />
+        <ForBusiness />
         <FAQ />
         <FinalCTA />
       </main>
       <Footer />
+      <MobileStickyCTA />
     </div>
   );
 }
