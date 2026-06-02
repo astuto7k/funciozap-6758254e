@@ -70,26 +70,26 @@
 :root {
   --radius: 0.625rem;
   /* FuncioZap brand */
-  --background: oklch(1 0 0);
+  --background: oklch(0.985 0.005 250);         /* soft cool off-white */
   --foreground: oklch(0.205 0.04 256);          /* #0F172A */
-  --card: oklch(1 0 0);
+  --card: oklch(0.995 0.003 250);
   --card-foreground: oklch(0.205 0.04 256);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.995 0.003 250);
   --popover-foreground: oklch(0.205 0.04 256);
   --primary: oklch(0.62 0.21 256);              /* #0A84FF */
   --primary-foreground: oklch(1 0 0);
   --primary-soft: oklch(0.78 0.13 230);         /* #38BDF8 */
   --primary-dark: oklch(0.21 0.07 256);         /* #06172F */
-  --secondary: oklch(0.97 0.005 250);           /* #F5F7FA */
+  --secondary: oklch(0.955 0.008 250);          /* warmer gray surface */
   --secondary-foreground: oklch(0.205 0.04 256);
-  --muted: oklch(0.97 0.005 250);
+  --muted: oklch(0.955 0.008 250);
   --muted-foreground: oklch(0.55 0.03 256);     /* #64748B */
-  --accent: oklch(0.95 0.025 240);
+  --accent: oklch(0.94 0.025 240);
   --accent-foreground: oklch(0.62 0.21 256);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.93 0.012 250);
-  --input: oklch(0.93 0.012 250);
+  --border: oklch(0.91 0.012 250);
+  --input: oklch(0.91 0.012 250);
   --ring: oklch(0.62 0.21 256);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -158,9 +158,9 @@
 @layer utilities {
   .bg-hero-radial {
     background:
-      radial-gradient(60% 50% at 50% 0%, color-mix(in oklab, var(--primary) 14%, transparent), transparent 70%),
-      radial-gradient(40% 40% at 100% 20%, color-mix(in oklab, var(--primary-soft) 18%, transparent), transparent 70%),
-      linear-gradient(180deg, #ffffff, #F5F9FF 80%);
+      radial-gradient(60% 50% at 50% 0%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 70%),
+      radial-gradient(40% 40% at 100% 20%, color-mix(in oklab, var(--primary-soft) 20%, transparent), transparent 70%),
+      linear-gradient(180deg, #F2F5FA 0%, #E8EEF6 100%);
   }
   .bg-cta-gradient {
     background: linear-gradient(135deg, #06172F 0%, #0A84FF 60%, #38BDF8 100%);
