@@ -21,6 +21,15 @@ import {
   Instagram,
   ShieldCheck,
   Bot,
+  Flame,
+  ShoppingCart,
+  PhoneOff,
+  PackageX,
+  CreditCard,
+  DollarSign,
+  Truck,
+  Zap,
+  Target,
 } from "lucide-react";
 import { Header } from "@/components/landing/Header";
 import { Logo } from "@/components/landing/Logo";
@@ -30,17 +39,17 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FuncioZap | IA para WhatsApp, Atendimento e Agendamentos" },
+      { title: "FuncioZap | IA no WhatsApp para Oferta X1 — Recupere Carrinho e Confirme COD" },
       {
         name: "description",
         content:
-          "Automatize atendimento no WhatsApp com IA humanizada, qualifique leads, organize conversas e agende consultas com o FuncioZap.",
+          "IA no WhatsApp para quem roda oferta X1: recupera carrinho abandonado, confirma pedidos COD, reduz recusa na entrega e aumenta o ROAS. Escalone sem queimar tráfego.",
       },
-      { property: "og:title", content: "FuncioZap | IA para WhatsApp, Atendimento e Agendamentos" },
+      { property: "og:title", content: "FuncioZap | IA no WhatsApp para Oferta X1" },
       {
         property: "og:description",
         content:
-          "Automatize atendimento no WhatsApp com IA humanizada, qualifique leads, organize conversas e agende consultas com o FuncioZap.",
+          "Recupere carrinho abandonado, confirme pedidos COD e reduza recusa na entrega com IA no WhatsApp. Feito para quem escala oferta única.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -59,7 +68,7 @@ function PrimaryCTA({ className = "" }: { className?: string }) {
       className={`inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm sm:text-[15px] font-semibold text-primary-foreground shadow-float hover:brightness-110 hover:-translate-y-0.5 transition ${className}`}
     >
       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
-      Falar agora no WhatsApp
+      Quero escalar minha oferta
       <ArrowRight className="h-4 w-4" />
     </a>
   );
@@ -88,7 +97,6 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-hero-radial">
-      {/* Subtle grid backdrop */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -109,27 +117,27 @@ function Hero() {
           <div className="animate-fade-up text-center lg:text-left">
             <div className="flex justify-center lg:justify-start">
               <SectionEyebrow>
-                <Sparkles className="h-3 w-3" />
-                Novo • IA conversacional para WhatsApp
+                <Flame className="h-3 w-3" />
+                Feito para quem roda oferta X1
               </SectionEyebrow>
             </div>
 
             <h1 className="mt-5 sm:mt-6 text-[34px] leading-[1.05] sm:text-[48px] lg:text-[62px] lg:leading-[1.02] font-semibold tracking-[-0.02em] text-foreground">
-              Pare de perder cliente no{" "}
+              Pare de queimar tráfego com{" "}
               <span className="relative inline-block">
-                <span className="relative z-10">WhatsApp</span>
+                <span className="relative z-10">carrinho abandonado</span>
                 <span
                   aria-hidden
                   className="absolute inset-x-0 bottom-1 sm:bottom-1.5 h-2.5 sm:h-3 rounded-md bg-primary/15"
                 />
               </span>
-              {" "}por demora em responder.
+              {" "}e pedido COD não confirmado.
             </h1>
 
             <p className="mt-5 sm:mt-6 text-[15.5px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
-              O FuncioZap é uma IA que atende como gente, agenda na sua
-              agenda, organiza tudo dentro do CRM e devolve para você só os
-              clientes prontos para fechar — 24h por dia, em segundos.
+              O FuncioZap é a IA no WhatsApp que recupera checkout abandonado,
+              confirma pedidos pagos na entrega, reduz recusa do entregador e
+              devolve o ROAS que o tráfego promete — 24h por dia, no automático.
             </p>
 
             <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:items-center justify-center lg:justify-start">
@@ -138,7 +146,7 @@ function Hero() {
             </div>
 
             <p className="mt-3 text-[12.5px] text-muted-foreground/90 text-center lg:text-left">
-              Atendimento humano em até 1 minuto • Sem cadastro, sem cartão.
+              Funciona com Shopify, Yampi, CartPanda, AppMax, Adoorei e checkouts customizados.
             </p>
 
             {/* Social proof row */}
@@ -168,7 +176,7 @@ function Hero() {
                   <span className="ml-1.5 text-[12.5px] font-semibold text-foreground">4.9/5</span>
                 </div>
                 <p className="mt-0.5 text-[12.5px] text-muted-foreground">
-                  Empresas já fecham mais agendamentos com o FuncioZap.
+                  Dropshippers já recuperam mais vendas com o FuncioZap.
                 </p>
               </div>
             </div>
@@ -183,14 +191,14 @@ function Hero() {
         {/* Trust strip */}
         <div className="mt-16 sm:mt-20 lg:mt-24 border-t border-border/60 pt-8 sm:pt-10">
           <p className="text-center text-[11.5px] sm:text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Construído para times que vivem do WhatsApp
+            Construído para dropshippers que vivem do WhatsApp
           </p>
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {[
-              { k: "< 2s", v: "Tempo médio de resposta" },
-              { k: "24/7", v: "Atendimento sem pausa" },
-              { k: "+60%", v: "Mais agendamentos confirmados" },
-              { k: "0", v: "Lead esquecido" },
+              { k: "+35%", v: "Recuperação de carrinho" },
+              { k: "+22%", v: "Taxa de confirmação COD" },
+              { k: "-40%", v: "Recusa do entregador" },
+              { k: "2x", v: "ROAS após otimização" },
             ].map((s) => (
               <div
                 key={s.v}
@@ -212,12 +220,12 @@ function Hero() {
 }
 
 const problems = [
-  { icon: Clock, title: "Demora para responder" },
-  { icon: MessageSquare, title: "Conversas espalhadas" },
-  { icon: UserX, title: "Leads sem acompanhamento" },
-  { icon: CalendarClock, title: "Agendamentos feitos manualmente" },
-  { icon: Repeat, title: "Tempo perdido com perguntas repetidas" },
-  { icon: Eye, title: "Falta de visão do que acontece" },
+  { icon: ShoppingCart, title: "Carrinho abandonado" },
+  { icon: PhoneOff, title: "Pedido COD não atende" },
+  { icon: PackageX, title: "Recusa na entrega" },
+  { icon: CreditCard, title: "Pix gerado, não pago" },
+  { icon: Clock, title: "Lead frio em horas" },
+  { icon: DollarSign, title: "CPA subindo" },
 ];
 
 function Problem() {
@@ -225,14 +233,14 @@ function Problem() {
     <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
-          <SectionEyebrow>O problema</SectionEyebrow>
+          <SectionEyebrow>O furo da oferta X1</SectionEyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Leads chegam. Mas nem sempre alguém responde a tempo.
+            O anúncio entrega o lead. Depois disso, quem está conversando com ele?
           </h2>
           <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
-            Enquanto sua equipe está atendendo, muitos contatos ficam esperando no
-            WhatsApp. Alguns perguntam preço, outros querem horário, outros somem
-            antes de receber resposta.
+            Você gasta dinheiro para o lead clicar no anúncio, chegar no checkout e parar.
+            Ou pedir COD e nunca atender o entregador. Esse é o buraco que come o ROAS de
+            quem escala oferta única.
           </p>
         </div>
 
@@ -253,10 +261,10 @@ function Problem() {
 }
 
 const steps = [
-  { n: "01", title: "O lead chama no WhatsApp", desc: "Mensagens chegam de Instagram, anúncio, site ou indicação." },
-  { n: "02", title: "A IA entende e responde", desc: "Com tom humano, contexto do seu negócio e regras configuradas." },
-  { n: "03", title: "Qualifica, agenda ou encaminha", desc: "Marca avaliação, tira dúvidas ou passa para sua equipe." },
-  { n: "04", title: "Você acompanha no painel", desc: "Conversas, leads, agenda e custos em um só lugar." },
+  { n: "01", title: "Cliente abandona o checkout", desc: "O FuncioZap detecta na hora pelo webhook do seu checkout." },
+  { n: "02", title: "IA chama no WhatsApp em segundos", desc: "Mensagem humanizada, com nome, produto e link direto." },
+  { n: "03", title: "Tira objeção e fecha", desc: "Frete, prazo, garantia, formas de pagamento — sem script robótico." },
+  { n: "04", title: "Confirma COD antes do envio", desc: "Você só envia pedido com cliente respondendo e ciente do valor." },
 ];
 
 function HowItWorks() {
@@ -266,7 +274,7 @@ function HowItWorks() {
         <div className="max-w-3xl">
           <SectionEyebrow>Como o FuncioZap resolve</SectionEyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Uma IA treinada para atender como parte da sua equipe.
+            Da abandonada à venda — em minutos, no automático.
           </h2>
         </div>
 
@@ -290,15 +298,15 @@ function HowItWorks() {
 }
 
 const features = [
-  { icon: Bot, title: "IA humanizada no WhatsApp", desc: "Responde com tom natural, seguindo as regras do seu negócio." },
-  { icon: Calendar, title: "Agenda inteligente", desc: "Configure dias, horários, profissionais e procedimentos." },
-  { icon: KanbanSquare, title: "CRM integrado", desc: "Cada lead vira um card com etapa, histórico e próximo passo." },
-  { icon: MessageSquare, title: "Painel de conversas", desc: "Veja todas as conversas em um só lugar e nunca mais perca um cliente." },
-  { icon: PauseCircle, title: "Assuma quando quiser", desc: "Pause a IA e responda você mesmo em conversas mais delicadas." },
-  { icon: BookOpen, title: "Treine sua IA", desc: "Adicione preços, horários e regras e a IA passa a falar como sua equipe." },
-  { icon: TrendingUp, title: "Relatórios claros", desc: "Acompanhe leads, agendamentos e taxa de conversão em tempo real." },
-  { icon: Users, title: "Qualificação automática", desc: "A IA filtra curiosos e entrega só quem está pronto para comprar." },
-  { icon: Download, title: "Exportação de leads", desc: "Leve seus contatos para qualquer ferramenta com 1 clique." },
+  { icon: ShoppingCart, title: "Recuperação de carrinho", desc: "Dispara no WhatsApp segundos após o abandono, com link de retorno." },
+  { icon: PhoneOff, title: "Confirmação de COD", desc: "Valida pedido pago na entrega antes da logística sair com a caixa." },
+  { icon: Truck, title: "Status de rastreio ativo", desc: "Cliente recebe atualização proativa e fica engajado até a entrega." },
+  { icon: CreditCard, title: "Cobrança de Pix pendente", desc: "Lembrete inteligente com novo QR Code e bônus para fechar." },
+  { icon: Repeat, title: "Upsell e order bump", desc: "Oferta complementar logo após a compra confirmada." },
+  { icon: Target, title: "Qualificação por intenção", desc: "Separa quem está quente de quem só queria preço." },
+  { icon: Bot, title: "IA com voz da sua marca", desc: "Treine respostas, objeções, frete e política de troca em minutos." },
+  { icon: TrendingUp, title: "Dashboard de operação", desc: "ROAS pós-WhatsApp, taxa de confirmação e recuperação em uma tela." },
+  { icon: Zap, title: "Integra com seu checkout", desc: "Shopify, Yampi, CartPanda, AppMax, Adoorei e API custom." },
 ];
 
 function Features() {
@@ -306,9 +314,9 @@ function Features() {
     <section id="recursos" className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="max-w-3xl">
-          <SectionEyebrow>Recursos</SectionEyebrow>
+          <SectionEyebrow>Recursos para ecommerce X1</SectionEyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Tudo que você precisa para transformar WhatsApp em operação comercial.
+            Tudo que falta entre o checkout e a venda confirmada.
           </h2>
         </div>
 
@@ -331,29 +339,30 @@ function Features() {
   );
 }
 
-function ClinicSection() {
+function CheckoutSection() {
   const uses = [
-    "Marcação de avaliação",
-    "Confirmação de consulta",
-    "Reagendamento",
-    "Resposta sobre procedimentos",
-    "Captação de leads do Instagram",
-    "Organização por paciente",
-    "Aviso de atraso ou cancelamento",
-    "Histórico de atendimento",
+    "Recuperação de carrinho abandonado",
+    "Confirmação de pedido COD",
+    "Cobrança de Pix pendente",
+    "Status de rastreio proativo",
+    "Upsell pós-compra",
+    "Qualificação de lead",
+    "Reengajamento de lead frio",
+    "Alerta de produto em estoque",
   ];
 
   return (
     <section id="para-quem" className="bg-secondary/40 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
-          <SectionEyebrow>Para clínicas</SectionEyebrow>
+          <SectionEyebrow>Para dropshippers X1</SectionEyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Perfeito para clínicas que vivem de agendamento.
+            Perfeito para quem escala oferta única no WhatsApp.
           </h2>
           <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
-            O FuncioZap ajuda sua clínica a responder pacientes, tirar dúvidas
-            iniciais, organizar solicitações e reduzir oportunidades perdidas.
+            O FuncioZap ajuda sua operação a recuperar checkouts abandonados,
+            confirmar pedidos COD, cobrar Pix pendentes e reduzir recusa na entrega
+            — tudo no automático, sem contratar time de SAC.
           </p>
 
           <ul className="mt-8 grid sm:grid-cols-2 gap-2.5">
@@ -366,23 +375,23 @@ function ClinicSection() {
           </ul>
         </div>
 
-        {/* Agenda mockup */}
+        {/* Pedidos mockup */}
         <div className="relative">
           <div className="rounded-2xl bg-white shadow-float ring-1 ring-border/60 overflow-hidden">
             <div className="flex items-center justify-between px-5 py-4 border-b border-border">
               <div>
-                <h4 className="text-[15px] font-semibold text-foreground">Agenda semanal</h4>
-                <p className="text-[12px] text-muted-foreground">Seg, 26 Mai — Sex, 30 Mai</p>
+                <h4 className="text-[15px] font-semibold text-foreground">Pedidos hoje</h4>
+                <p className="text-[12px] text-muted-foreground">142 pedidos • 109 confirmados</p>
               </div>
-              <span className="text-[12px] font-medium text-primary">Dra. Camila</span>
+              <span className="text-[12px] font-medium text-primary">Operação X1</span>
             </div>
             <div className="p-4 space-y-2">
               {[
-                { t: "09:00", n: "Ana Souza", p: "Avaliação", c: "bg-primary" },
-                { t: "10:30", n: "Carlos Lima", p: "Limpeza", c: "bg-emerald-500" },
-                { t: "13:00", n: "Marina Reis", p: "Clareamento", c: "bg-primary-soft" },
-                { t: "14:30", n: "João Pedro", p: "Avaliação", c: "bg-amber-500" },
-                { t: "16:00", n: "Beatriz Alves", p: "Retorno", c: "bg-primary" },
+                { t: "09:00", n: "Rafael Costa", p: "Kit Premium • R$197", c: "bg-emerald-500", s: "Pago" },
+                { t: "10:30", n: "Camila Brito", p: "Combo 2x • R$247", c: "bg-amber-500", s: "Aguardando" },
+                { t: "13:00", n: "Diego Pereira", p: "Trial • R$97", c: "bg-primary", s: "Recuperado" },
+                { t: "14:30", n: "Eliane Rocha", p: "Premium • R$197", c: "bg-emerald-500", s: "Pago" },
+                { t: "16:00", n: "Fábio Mendes", p: "Kit Slim • R$147", c: "bg-amber-500", s: "Aguardando" },
               ].map((row) => (
                 <div
                   key={row.t}
@@ -394,8 +403,8 @@ function ClinicSection() {
                     <div className="text-[13.5px] font-medium text-foreground">{row.n}</div>
                     <div className="text-[11.5px] text-muted-foreground">{row.p}</div>
                   </div>
-                  <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-                    Confirmado
+                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${row.s === "Pago" ? "bg-emerald-500/10 text-emerald-600" : row.s === "Recuperado" ? "bg-primary/10 text-primary" : "bg-amber-500/10 text-amber-600"}`}>
+                    {row.s}
                   </span>
                 </div>
               ))}
@@ -414,10 +423,10 @@ function MidCTA() {
         <div className="rounded-3xl border border-border bg-secondary/40 p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
           <div>
             <h3 className="text-xl sm:text-2xl font-semibold text-foreground tracking-tight">
-              Pronto para ver o FuncioZap atendendo pela sua equipe?
+              Pronto para ver o FuncioZap recuperando suas vendas?
             </h3>
             <p className="mt-1 text-[14px] text-muted-foreground">
-              Demonstração rápida, sob medida para o seu negócio.
+              Demonstração rápida, sob medida para sua operação X1.
             </p>
           </div>
           <PrimaryCTA />
@@ -433,24 +442,24 @@ function CRMSection() {
       title: "Novo lead",
       color: "bg-primary-soft",
       cards: [
-        { name: "Ana Souza", tag: "Clareamento", time: "há 2 min" },
-        { name: "Pedro Lima", tag: "Avaliação", time: "há 8 min" },
+        { name: "Rafael Costa", tag: "Kit Premium", time: "há 2 min" },
+        { name: "Camila Brito", tag: "Combo 2x", time: "há 8 min" },
       ],
     },
     {
       title: "Qualificado pela IA",
       color: "bg-primary",
       cards: [
-        { name: "Marina Reis", tag: "Lente • R$ 12k", time: "há 14 min" },
-        { name: "Lucas Dias", tag: "Estética", time: "há 22 min" },
+        { name: "Diego Pereira", tag: "Trial • R$97", time: "há 14 min" },
+        { name: "Eliane Rocha", tag: "Premium", time: "há 22 min" },
       ],
     },
     {
-      title: "Agendado",
+      title: "Pedido confirmado",
       color: "bg-emerald-500",
       cards: [
-        { name: "Carla Mota", tag: "Amanhã 14:30", time: "confirmado" },
-        { name: "João Pedro", tag: "Quinta 10:00", time: "confirmado" },
+        { name: "Fábio Mendes", tag: "Kit Slim • Pago", time: "confirmado" },
+        { name: "Marina Reis", tag: "Combo 2x • COD", time: "confirmado" },
       ],
     },
   ];
@@ -462,13 +471,12 @@ function CRMSection() {
             <KanbanSquare className="h-3 w-3" /> CRM integrado
           </SectionEyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            Cada conversa vira um lead organizado. Nenhum cliente fica para trás.
+            Cada conversa vira um lead organizado. Nenhum pedido fica para trás.
           </h2>
           <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
             O FuncioZap não é só um chatbot. Cada lead que chega no WhatsApp
-            entra automaticamente no seu CRM, com etapa, histórico e próximo
-            passo claros. Você enxerga sua operação de vendas inteira em uma
-            única tela.
+            entra automaticamente no seu funil, com etapa, histórico e próximo
+            passo claros. Você enxerga sua operação inteira em uma única tela.
           </p>
         </div>
 
@@ -515,7 +523,7 @@ function HumanWhenNeeded() {
           <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground">
             Pause a IA em conversas específicas, responda manualmente e depois
             reative o atendimento automático. Ideal para negociações sensíveis,
-            dúvidas complexas ou fechamento.
+            objeções complexas ou fechamento.
           </p>
         </div>
 
@@ -537,7 +545,7 @@ function HumanWhenNeeded() {
               Quero entender melhor as formas de pagamento.
             </div>
             <div className="ml-auto max-w-[78%] rounded-2xl rounded-tr-md bg-primary px-3.5 py-2.5 text-[13px] text-white">
-              Claro! Vou chamar a Camila aqui para te explicar com calma 👋
+              Claro! Vou chamar o time aqui para te explicar com calma 👋
             </div>
             <button className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-white py-2.5 text-[13px] font-semibold text-foreground hover:bg-secondary transition">
               <PauseCircle className="h-4 w-4" /> Pausar IA e responder manualmente
@@ -550,14 +558,14 @@ function HumanWhenNeeded() {
 }
 
 const benefits = [
-  "Mais velocidade no primeiro atendimento",
-  "Menos leads esquecidos",
-  "Mais agendamentos",
-  "Menos trabalho repetitivo",
-  "Melhor controle por cliente",
-  "Atendimento padronizado",
-  "Funcionando fora do horário comercial",
-  "Mais clareza sobre custos e performance",
+  "Mais recuperação de carrinho abandonado",
+  "Menos pedidos COD não confirmados",
+  "Menos recusa do entregador",
+  "Mais conversão em Pix",
+  "Pós-venda automatizado",
+  "Upsell sem esforço manual",
+  "Atendimento 24/7 no WhatsApp",
+  "Menos custo com time de SAC",
 ];
 
 function Benefits() {
@@ -567,7 +575,7 @@ function Benefits() {
         <div className="max-w-3xl">
           <SectionEyebrow>Benefícios</SectionEyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-            O resultado é uma operação mais rápida, organizada e previsível.
+            O resultado é uma operação mais enxuta, rentável e escalável.
           </h2>
         </div>
 
@@ -590,12 +598,11 @@ function WhatsAppCTA() {
       <div className="mx-auto max-w-5xl px-5 sm:px-8 text-center">
         <SectionEyebrow>Fale com a gente agora</SectionEyebrow>
         <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
-          Em 5 minutos no WhatsApp você vê a IA atendendo pelo seu negócio.
+          Em 5 minutos no WhatsApp você vê a IA recuperando carrinhos pelo seu negócio.
         </h2>
         <p className="mt-5 text-[16px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-2xl mx-auto">
           Sem formulário, sem cadastro. Toque no botão abaixo, mande “oi” e
-          nossa equipe te mostra na hora como o FuncioZap pode dobrar seus
-          agendamentos.
+          nossa equipe te mostra na hora como o FuncioZap pode dobrar seu ROAS.
         </p>
         <div className="mt-8 flex justify-center">
           <PrimaryCTA />
@@ -612,32 +619,32 @@ function WhatsAppCTA() {
 
 const faqs = [
   {
-    q: "O FuncioZap substitui minha equipe?",
-    a: "Não. Ele automatiza o primeiro atendimento e tarefas repetitivas, mas sua equipe pode assumir quando quiser.",
+    q: "O FuncioZap substitui meu time de SAC?",
+    a: "Não. Ele automatiza o primeiro atendimento, recuperação de carrinho e confirmação de COD, mas seu time pode assumir quando quiser.",
   },
   {
-    q: "Funciona com qualquer tipo de clínica?",
-    a: "Sim, desde que os fluxos, horários e informações sejam configurados para cada operação.",
+    q: "Funciona com qual checkout?",
+    a: "Sim. Integramos com Shopify, Yampi, CartPanda, AppMax, Adoorei e qualquer checkout via webhook.",
   },
   {
-    q: "A IA pode agendar consultas?",
-    a: "Sim. Ela segue os horários e regras configurados no painel.",
+    q: "A IA confirma pedidos COD?",
+    a: "Sim. Ela envia mensagem de confirmação, valida endereço e valor antes do envio. Você só despacha o que está confirmado.",
   },
   {
     q: "Posso ver as conversas?",
-    a: "Sim. O painel permite acompanhar conversas e histórico.",
+    a: "Sim. O painel permite acompanhar conversas, recuperação e taxa de confirmação em tempo real.",
   },
   {
     q: "O atendimento parece robótico?",
-    a: "A proposta é justamente criar respostas curtas, naturais e adaptadas ao tom da empresa.",
+    a: "A proposta é justamente criar respostas curtas, naturais e adaptadas ao tom da sua marca — como um vendedor experiente.",
   },
   {
     q: "Preciso instalar alguma coisa?",
     a: "Não. É 100% no seu WhatsApp atual. Conectamos em poucos minutos e a IA já começa a atender.",
   },
   {
-    q: "Tem CRM incluso?",
-    a: "Sim. Todo lead que chega entra no CRM com etapa, histórico e próximo passo — você acompanha tudo em uma tela só.",
+    q: "Tem dashboard de ROAS?",
+    a: "Sim. Você acompanha taxa de recuperação, confirmação COD, recuperação de Pix e ROAS pós-WhatsApp em uma tela só.",
   },
 ];
 
@@ -699,11 +706,11 @@ function FinalCTA() {
         />
         <div className="relative">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight max-w-3xl mx-auto">
-            Cada minuto sem responder é um cliente indo para o concorrente.
+            Cada checkout abandonado é dinheiro que você deixou na mesa.
           </h2>
           <p className="mt-5 text-[16px] sm:text-[17px] text-white/80 max-w-2xl mx-auto">
-            Coloque a IA do FuncioZap para atender, qualificar e agendar agora.
-            É só clicar e falar com a gente no WhatsApp.
+            Coloque a IA do FuncioZap para recuperar carrinhos, confirmar COD e
+            cobrar Pix. É só clicar e falar com a gente no WhatsApp.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <a
@@ -713,7 +720,7 @@ function FinalCTA() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-semibold text-primary hover:bg-white/90 transition"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20.5 3.5A11 11 0 003.4 17.3L2 22l4.8-1.4a11 11 0 0013.7-17.1zM12 20a8 8 0 01-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1112 20z"/></svg>
-              Falar agora no WhatsApp
+              Quero escalar minha oferta
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
@@ -739,7 +746,7 @@ function Footer() {
         <div className="md:col-span-1">
           <Logo />
           <p className="mt-4 text-[13.5px] text-muted-foreground max-w-xs leading-relaxed">
-            Automação inteligente para WhatsApp, atendimento e agendamentos.
+            IA no WhatsApp para recuperar carrinho, confirmar COD e escalar ofertas X1.
           </p>
         </div>
 
@@ -788,7 +795,7 @@ function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-5 text-[12px] text-muted-foreground flex flex-col sm:flex-row justify-between gap-2">
           <p>© {new Date().getFullYear()} FuncioZap. Todos os direitos reservados.</p>
-          <p>Feito para clínicas e negócios que não podem perder leads.</p>
+          <p>Feito para dropshippers que não podem perder vendas.</p>
         </div>
       </div>
     </footer>
@@ -804,7 +811,7 @@ export function LandingPage() {
         <Problem />
         <HowItWorks />
         <Features />
-        <ClinicSection />
+        <CheckoutSection />
         <MidCTA />
         <CRMSection />
         <HumanWhenNeeded />
