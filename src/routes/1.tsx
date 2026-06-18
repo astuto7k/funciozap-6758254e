@@ -119,9 +119,7 @@ function Hero() {
             </h1>
 
             <p className="mt-5 text-[15.5px] sm:text-[17px] leading-relaxed text-muted-foreground max-w-xl mx-auto lg:mx-0">
-              O FuncioZap é uma IA que atende como gente, anota o pedido,
-              confirma endereço e envia para a cozinha em segundos — sem
-              cliente esperando, sem pedido perdido.
+              Atende como gente, anota o pedido e envia para a cozinha em segundos — sem espera, sem perda.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:items-center justify-center lg:justify-start">
