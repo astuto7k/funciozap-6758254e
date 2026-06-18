@@ -225,7 +225,7 @@ function Features() {
         <div className="max-w-3xl">
           <Eyebrow>Recursos</Eyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
-            Do “oi, tem entrega?” até o pedido saindo pra entrega.
+            Do pedido ao forninho, sem retrabalho.
           </h2>
         </div>
 
@@ -282,19 +282,19 @@ function Benefits() {
 const faqs = [
   {
     q: "Funciona com o meu WhatsApp atual?",
-    a: "Sim. Conectamos no seu número em poucos minutos, sem trocar nada.",
+    a: "Sim. Conectamos no seu número em minutos, sem trocar nada.",
   },
   {
     q: "A IA consegue mesmo anotar pedidos?",
-    a: "Sim. Ela puxa do seu cardápio, sugere adicionais, calcula o total e confirma com o cliente antes de enviar pra cozinha.",
+    a: "Sim. Puxa do cardápio, sugere adicionais, calcula o total e confirma antes de enviar pra cozinha.",
   },
   {
     q: "E quando quero responder na mão?",
-    a: "É só pausar a IA naquela conversa. Ao terminar, ela volta a atender normalmente.",
+    a: "É só pausar a IA. Ao terminar, ela volta sozinha.",
   },
   {
     q: "Preciso instalar algo?",
-    a: "Não. É tudo no seu WhatsApp, sem app novo pra equipe aprender.",
+    a: "Nada. É tudo no seu WhatsApp, sem app novo pra equipe.",
   },
 ];
 
@@ -356,7 +356,7 @@ function FinalCTA() {
             Cada pedido sem resposta é um cliente jantando no concorrente.
           </h2>
           <p className="mt-4 text-[15.5px] sm:text-[16px] text-white/80 max-w-xl mx-auto">
-            Veja em 5 minutos a IA do FuncioZap atendendo pelo seu delivery.
+            Veja em 5 minutos a IA atendendo pelo seu delivery.
           </p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
             <a
