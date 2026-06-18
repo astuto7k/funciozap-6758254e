@@ -188,7 +188,7 @@ function HowItWorks() {
         <div className="max-w-3xl">
           <Eyebrow>Como funciona</Eyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
-            Uma IA que atende como o seu melhor atendente — só que em segundos.
+            Seu melhor atendente — só que em segundos.
           </h2>
         </div>
 
