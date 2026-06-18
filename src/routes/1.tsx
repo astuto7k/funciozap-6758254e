@@ -150,26 +150,26 @@ const problems = [
 
 function Problem() {
   return (
-    <section className="bg-white py-12 sm:py-14">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="max-w-3xl">
+    <section className="bg-white py-10 sm:py-12">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="max-w-2xl">
           <Eyebrow>O problema</Eyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-3 text-2xl sm:text-[28px] font-semibold tracking-tight text-foreground">
             No rush, cada minuto sem resposta é um pedido a menos.
           </h2>
         </div>
 
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <ul className="mt-7 divide-y divide-border/70 border-y border-border/70">
           {problems.map(({ icon: Icon, title }) => (
-            <div
+            <li
               key={title}
-              className="rounded-xl border border-border bg-secondary/40 p-5"
+              className="flex items-center gap-3 py-3.5 text-[14.5px] text-foreground"
             >
-              <Icon className="h-5 w-5 text-primary" />
-              <p className="mt-3 text-[14px] font-medium text-foreground">{title}</p>
-            </div>
+              <Icon className="h-4 w-4 text-primary shrink-0" />
+              <span>{title}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
@@ -183,29 +183,30 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <section id="como-funciona" className="bg-secondary/40 py-12 sm:py-14">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="max-w-3xl">
+    <section id="como-funciona" className="bg-secondary/40 py-10 sm:py-12">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="max-w-2xl">
           <Eyebrow>Como funciona</Eyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-3 text-2xl sm:text-[28px] font-semibold tracking-tight text-foreground">
             Seu melhor atendente — só que em segundos.
           </h2>
         </div>
 
-        <div className="mt-10 grid md:grid-cols-3 gap-4">
-          {steps.map((s) => (
-            <div
-              key={s.n}
-              className="relative rounded-xl bg-white p-6 border border-border/60"
-            >
-              <span className="text-[12px] font-semibold text-primary">{s.n}</span>
-              <h3 className="mt-2 text-[16px] font-semibold text-foreground">{s.title}</h3>
-              <p className="mt-2 text-[14px] text-muted-foreground leading-relaxed">
+        <ol className="mt-8 grid gap-6 sm:gap-8 md:grid-cols-3 md:gap-10 relative">
+          {steps.map((s, i) => (
+            <li key={s.n} className="relative">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-[12px] font-semibold">
+                  {i + 1}
+                </span>
+                <h3 className="text-[15.5px] font-semibold text-foreground">{s.title}</h3>
+              </div>
+              <p className="mt-2 pl-10 text-[14px] text-muted-foreground leading-relaxed">
                 {s.desc}
               </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
@@ -220,26 +221,25 @@ const features = [
 
 function Features() {
   return (
-    <section id="recursos" className="bg-white py-12 sm:py-14">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="max-w-3xl">
+    <section id="recursos" className="bg-white py-10 sm:py-12">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="max-w-2xl">
           <Eyebrow>Recursos</Eyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-3 text-2xl sm:text-[28px] font-semibold tracking-tight text-foreground">
             Do pedido ao forninho, sem retrabalho.
           </h2>
         </div>
 
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2">
           {features.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="group rounded-xl border border-border bg-white p-5 hover:shadow-card hover:-translate-y-0.5 transition"
-            >
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition">
-                <Icon className="h-4.5 w-4.5" />
+            <div key={title} className="flex gap-3.5">
+              <Icon className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-[15px] font-semibold text-foreground">{title}</h3>
+                <p className="mt-1 text-[13.5px] text-muted-foreground leading-relaxed">
+                  {desc}
+                </p>
               </div>
-              <h3 className="mt-3 text-[15px] font-semibold text-foreground">{title}</h3>
-              <p className="mt-1 text-[13.5px] text-muted-foreground leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
@@ -258,15 +258,15 @@ function Benefits() {
     "Histórico de cada cliente",
   ];
   return (
-    <section id="resultados" className="bg-secondary/40 py-12 sm:py-14">
+    <section id="resultados" className="bg-secondary/40 py-10 sm:py-12">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
-        <div className="max-w-3xl">
+        <div className="max-w-2xl">
           <Eyebrow>Resultados</Eyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-3 text-2xl sm:text-[28px] font-semibold tracking-tight text-foreground">
             Mais pedido, menos correria.
           </h2>
         </div>
-        <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3">
+        <ul className="mt-7 grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
           {items.map((b) => (
             <li key={b} className="flex items-start gap-2.5 text-[15px] text-foreground/90">
               <Check className="h-4.5 w-4.5 text-primary mt-0.5 shrink-0" />
@@ -301,22 +301,22 @@ const faqs = [
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-white py-12 sm:py-14">
+    <section className="bg-white py-10 sm:py-12">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <div className="text-center">
+        <div>
           <Eyebrow>FAQ</Eyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-3 text-2xl sm:text-[28px] font-semibold tracking-tight text-foreground">
             Perguntas frequentes
           </h2>
         </div>
-        <div className="mt-8 space-y-2.5">
+        <div className="mt-6 divide-y divide-border/70 border-y border-border/70">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className="rounded-xl border border-border bg-white overflow-hidden">
+              <div key={f.q}>
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+                  className="w-full flex items-center justify-between gap-4 py-4 text-left"
                   aria-expanded={isOpen}
                 >
                   <span className="text-[15px] font-medium text-foreground">{f.q}</span>
@@ -325,7 +325,7 @@ function FAQ() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 text-[14px] text-muted-foreground leading-relaxed">
+                  <div className="pb-4 pr-8 text-[14px] text-muted-foreground leading-relaxed">
                     {f.a}
                   </div>
                 )}
