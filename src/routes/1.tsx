@@ -155,7 +155,7 @@ function Problem() {
         <div className="max-w-3xl">
           <Eyebrow>O problema</Eyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
-            Na hora do rush, cada minuto sem responder é um pedido a menos.
+            No rush, cada minuto sem resposta é um pedido a menos.
           </h2>
         </div>
 
