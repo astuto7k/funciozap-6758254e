@@ -142,10 +142,10 @@ function Hero() {
 }
 
 const problems = [
-  { icon: Clock, title: "Demora para responder no horário de pico" },
-  { icon: Repeat, title: "Mesma pergunta de cardápio o dia todo" },
-  { icon: UserX, title: "Cliente desiste e pede no concorrente" },
-  { icon: MessageSquare, title: "Pedidos perdidos no meio das conversas" },
+  { icon: Clock, title: "Cliente esperando 10, 15 minutos por uma resposta simples" },
+  { icon: Repeat, title: "Você respondendo “qual o valor?” pela milésima vez" },
+  { icon: UserX, title: "Pedido fechando no concorrente enquanto o seu WhatsApp acumula" },
+  { icon: MessageSquare, title: "Pedido errado, endereço trocado, comanda perdida no meio da conversa" },
 ];
 
 function Problem() {
@@ -153,10 +153,13 @@ function Problem() {
     <section className="bg-white py-10 sm:py-12">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <div className="max-w-2xl">
-          <Eyebrow>O problema</Eyebrow>
+          <Eyebrow>A real do seu WhatsApp</Eyebrow>
           <h2 className="mt-3 text-2xl sm:text-[28px] font-semibold tracking-tight text-foreground">
-            No rush, cada minuto sem resposta é um pedido a menos.
+            Sexta, 20h. O celular não para — e cada mensagem sem resposta é faturamento indo embora.
           </h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+            Você não precisa de mais um atendente. Precisa de alguém que responda na hora, todo dia, sem cansar e sem deixar pedido escapar.
+          </p>
         </div>
 
         <ul className="mt-7 divide-y divide-border/70 border-y border-border/70">
