@@ -14,7 +14,6 @@ import {
   ShoppingBag,
   Bike,
   Receipt,
-  Flame,
 } from "lucide-react";
 import { Header } from "@/components/landing/Header";
 import { Logo } from "@/components/landing/Logo";
@@ -100,10 +99,7 @@ function Hero() {
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 sm:gap-14 lg:gap-16 items-center">
           <div className="animate-fade-up text-center lg:text-left">
             <div className="flex justify-center lg:justify-start">
-              <Eyebrow>
-                <Flame className="h-3 w-3" />
-                Feito para quem vive de delivery
-              </Eyebrow>
+              <Eyebrow>Feito para quem vive de delivery</Eyebrow>
             </div>
 
             <h1 className="mt-5 sm:mt-6 text-[34px] leading-[1.05] sm:text-[48px] lg:text-[58px] lg:leading-[1.02] font-semibold tracking-[-0.02em] text-foreground">
